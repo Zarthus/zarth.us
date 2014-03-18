@@ -31,7 +31,7 @@ define("JSDIR", ROOTDIR . '/js');
 
 // Includes
 require_once('config.php');
-require_once(CLASSDIR . '/Autoloader.php');
+require_once(CLASSDIR . '/autoloader.php');
 
 include_once('functions.php');
 

@@ -49,10 +49,6 @@ $lfm['url'] = 'http://www.last.fm/user/' . $lfm['user'];
 $lfm['api_key'] = '****';
 $lfm['cache'] = true;
 
-
-
-
-
 // Google Analytics Array
 // Whether or not to use Google Analytics
 // Defaults to false if not set.
