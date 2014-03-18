@@ -46,9 +46,7 @@ $web['description'] = '';
 $lfm['enabled'] = true;
 $lfm['user'] = 'BuuGhost';
 $lfm['url'] = 'http://www.last.fm/user/' . $lfm['user'];
-$lfm['api_key'] = '932a6ac9a575f89ae1f12e936478fb21';
-# $lfm['last_fm_api_secret'] = 'd25d40f96d6bdb86598012f40e3675b0';
-# $lfm['api_key'] = '****';
+$lfm['api_key'] = '****';
 $lfm['cache'] = true;
 
 
