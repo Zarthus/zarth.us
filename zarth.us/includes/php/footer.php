@@ -13,10 +13,10 @@ $footer = <<<FOOTER
 		<div class="col-md-6">
 			<p><small>This website would not be possible without <a href='http://getbootstrap.com' title='This website is built using bootstrap.'>Bootstrap</a>,
 			<a href='http://atheme.org' title='The website design is inspired by this website.'>Atheme</a>,
-			and <a title='Those icons are all Font Awesomes doing.' href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a></small>\n
+			and <a title='Those icons are all Font Awesomes doing.' href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a></small>
 		</div>
 		<div class="col-md-3">
-			<p class=\"pull-right\"><a href=\"#\">Back to top</a></p>\n
+			<p><a href="#">Back to top</a></p>
 		</div>
 	</div>
 FOOTER;
