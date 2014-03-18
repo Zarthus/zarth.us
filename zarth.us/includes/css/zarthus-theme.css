@@ -1,14 +1,18 @@
-/* The CSS in this file was inspired by atheme.org, bootstrap.com */
-
+/**
+ *  Zarthus (zarth.us) theme
+ *  
+ *  All the CSS for the entire zarth.us website.
+ *  The CSS in this file was inspired by atheme.org, bootstrap.com
+ *  
+ *  @package    zarth.us
+ *  @author     Zarthus <zarthus@zarth.us>
+ *  @link       https://github.com/Zarthus/zarth.us
+ *  @license    MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *  @since      18/03/2014
+ */
 
 body {
 	background-color: #F2F2F2;
-}
-
-.content {
-	font-family: Roboto, arial, sans-sarif;
-	color: #333;
-	text-align: center;
 }
 
 .page-header {
@@ -17,12 +21,34 @@ body {
 	margin-bottom: 0px;
 }
 
+/* Remove all markup that is associated with <a> by inheriting previous values. */
+.no-link-markup,
+.no-link-markup:hover,
+.no-link-markup:active,
+.no-link-markup:focus {
+    color: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    text-decoration: inherit;
+}
+
 /* 
-.site-name {}
 .site-name-subdomains {}
 .site-name-primary {}
 .site-name-tld {}
 */
+
+.content {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #333;
+
+    margin-bottom: 21px;
+    font-size: 17px;
+    font-weight: 200;
+    line-height: 1.4;
+}
 
 .navbar, .navbar-inverse .dropdown-menu {
 	background-color: #024;
