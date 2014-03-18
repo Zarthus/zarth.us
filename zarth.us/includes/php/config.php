@@ -12,18 +12,13 @@ if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot 
 $title = explode('.',  basename($_SERVER['SCRIPT_NAME']))[0];
 $title = strtoupper(substr($title, 0, 1)) . substr($title, 1);
 
-$web = array();
-
 // This is the title displayed on every page.
 $web['title'] = $title;
-
 // The prefix and suffix in the header <title>.
 $web['title_prefix'] = '';
-$web['title_suffix'] = $_SERVER['SERVER_NAME'];
-	
+$web['title_suffix'] = $_SERVER['SERVER_NAME'];	
 // The description in the <meta> tag.
 $web['description'] = '';
-// End Web Configuration	
 	
 // Last FM: Display your LastFM data on the home page.
 // If enabled, the `user`, `url`, and `api_key` items are required. 
@@ -36,9 +31,25 @@ $lfm['url'] = 'http://www.last.fm/user/' . $lfm['user'];
 #$lfm['api_key'] = '****';
 $lfm['cache'] = true;
 
+
+// Google Analytics Array
+// Whether or not to use Google Analytics
+// Defaults to false if not set.
+$ga['enabled'] = true;
+// User Account ID
+// Should look like: UA-XXXXXX-X
+$ga['ua_id'] = "UA-48792360-1";	
+// Website name
+$ga['site'] = 'zarth.us';
+
+// Database information
+$host 	= "localhost";
+$dbname = "website";
+$user 	= "zarth-web";
+$pass 	= "";
+
 // The title is displayed left of the navigation bar, but not required.
 $navtitle = '';
-
 // The navigation bar
 $navbar = array
 (
@@ -140,23 +151,4 @@ $navbar = array
 	),
 );
 
-// Google Analytics Array
-$ga = array
-(
-	// Whether or not to use Google Analytics
-	// Defaults to false if not set.
-	'enabled' => true,
-	
-	// User Account ID
-	// Should look like: UA-XXXXXX-X
-	'ua_id' => "UA-48792360-1",
-	
-	// Website name
-	'site' => 'zarth.us'
-);
-
-// Database information
-$host 	= "localhost";
-$dbname = "website";
-$user 	= "zarth-web";
-$pass 	= "";
+# EOF

@@ -1,6 +1,6 @@
 <?php
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
-
+#open sans & font weight 200
 /**
  *	functions.php
  *
@@ -119,7 +119,7 @@ function parseDefaultHead($web)
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	{$theme}
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 
 
 	<!--[if lt IE 9]>
@@ -368,7 +368,7 @@ function lastfm_generate_html($header, array $data)
 	$last_fm = <<<LASTFM
 	<div class="col-md-6 last-fm-entry">
 		<h2>{$header}</h2>
-		<p class='last-fm-data'>
+		<p class="last-fm-data">
 			{$lfmData}
 		</p>
 	</div>	
@@ -383,7 +383,7 @@ function lastfm_generate_html_error($header)
 	$last_fm = <<<LASTFM
 	<div class="col-md-6 last-fm-entry">
 		<h2>{$header}</h2>
-		<p class='last-fm-data'>
+		<p class="last-fm-data">
 			Failed to get data from last.fm
 		</p>
 	</div>	
