@@ -1,4 +1,17 @@
 <?php
+if (defined("SITE_INIT")) die("You are trying to include the website initialisation twice.");
+/**
+ *	Initialisation
+ *	
+ *	The website initalisation. This is not the file to configure 
+ *	your website, use config.php for that.
+ *	
+ *	@package	zarth.us
+ *	@author		Zarthus <zarthus@zarth.us>
+ *	@link		https://github.com/Zarthus/zarth.us
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@since		18/03/2014
+ */
 
 // Setting this makes sure you're authorised to access pages you're otherwise not.
 define("SITE_INIT", true);
@@ -58,3 +71,13 @@ try {
 
 // unset the variables we will never use again.
 unset($host, $dbname, $user, $pass);
+
+// Add the visitor to the database.
+// Please ensure you set "USER_PATH" to the file, path, or small description 
+// of where the user is in prior to including init.php to verify the path is 
+// correctly loaded.
+if (!defined("USER_PATH"))
+{
+	# TODO: Log Notice
+}
+new Visitor($dbh);

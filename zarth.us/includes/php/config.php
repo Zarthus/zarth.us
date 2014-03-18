@@ -1,13 +1,31 @@
 <?php
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
-
 /**
- *	Web configuration
+ *	Config
+ *	
+ *	The file to configure some of the dynamic things
+ *	on the website.
  *
- *	Some smaller details can be configured here, either leaving them out or leaving them at ''
- *	implies they will not be used.
+ *	You can configure the following things:
+ *	  Database information
+ *	  Website settings (title, meta description)
+ *	  Last FM API Usage
+ *	  Use of Google Analytics
+ *	  Navigation panel	
+ *
+ *	@package	zarth.us
+ *	@author		Zarthus <zarthus@zarth.us>
+ *	@link		https://github.com/Zarthus/zarth.us
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@since		18/03/2014
  */
 
+// Database information
+$host 	= "localhost";
+$dbname = "website";
+$user 	= "zarth-web";
+$pass 	= "";
+ 
 // Set the title to "Filename" instead of "filename.php" 
 $title = explode('.',  basename($_SERVER['SCRIPT_NAME']))[0];
 $title = strtoupper(substr($title, 0, 1)) . substr($title, 1);
@@ -28,8 +46,13 @@ $web['description'] = '';
 $lfm['enabled'] = true;
 $lfm['user'] = 'BuuGhost';
 $lfm['url'] = 'http://www.last.fm/user/' . $lfm['user'];
-#$lfm['api_key'] = '****';
+$lfm['api_key'] = '932a6ac9a575f89ae1f12e936478fb21';
+# $lfm['last_fm_api_secret'] = 'd25d40f96d6bdb86598012f40e3675b0';
+# $lfm['api_key'] = '****';
 $lfm['cache'] = true;
+
+
+
 
 
 // Google Analytics Array
@@ -41,12 +64,6 @@ $ga['enabled'] = true;
 $ga['ua_id'] = "UA-48792360-1";	
 // Website name
 $ga['site'] = 'zarth.us';
-
-// Database information
-$host 	= "localhost";
-$dbname = "website";
-$user 	= "zarth-web";
-$pass 	= "";
 
 // The title is displayed left of the navigation bar, but not required.
 $navtitle = '';

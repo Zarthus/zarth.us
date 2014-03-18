@@ -1,15 +1,15 @@
 <?php
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
-#open sans & font weight 200
 /**
- *	functions.php
- *
- *	Author: 	Zarthus <zarthus@zarth.us>
- *
- *	Date: 		12/03/2014
- *	License: 	MIT
- *
- *	Contains a wide array of misc. functions the site uses.
+ *	Functions
+ *	
+ *	A wide array of website functions
+ *	
+ *	@package	zarth.us
+ *	@author		Zarthus <zarthus@zarth.us>
+ *	@link		https://github.com/Zarthus/zarth.us
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@since		18/03/2014
  */
 
 /**
@@ -29,18 +29,17 @@ function getSiteName($markup = false)
 	$count = count($sName);
 	if ($count == 2)
 	{	// If the count is 2, we're not on any subdomain
-		return '<span class="site-name"><span class="site-name-primary">' . $sName[0] . '</span>.<span class="site-name-tld">' . $sName[1] . '</span></span>'; 
+		return '<span class="site-name-primary">' . $sName[0] . '</span>.<span class="site-name-tld">' . $sName[1] . '</span>'; 
 	}
 	else if ($count > 2) 
 	{	// We're on a subdomain
-		return '<span class="site-name">' .
-			'<span class="site-name-subdomains">' . implode('.', array_slice($sName, 0, $count - 2)) . '</span>' .
+		return '<span class="site-name-subdomains">' . implode('.', array_slice($sName, 0, $count - 2)) . '</span>' .
 			'<span class="site-name-primary">' . $sName[$count - 2] . '</span>.' . 
-			'<span class="site-name-tld">' . $sName[$count - 1] . '</span></span>';		
+			'<span class="site-name-tld">' . $sName[$count - 1] . '</span>';		
 	}
 	else 
 	{	// If this is the case, we're probably on localhost.
-		return '<span class="site-name"><span class="site-name-primary">' . $sName[0] . '</span><span class="site-name-tld">.tld</span></span>'; 		
+		return '<span class="site-name-primary">' . $sName[0] . '</span><span class="site-name-tld">.tld</span>'; 		
 	}
 }
 
@@ -117,7 +116,6 @@ function parseDefaultHead($web)
 	<link rel="shortcut icon" type="image/png" href="favicon.png">
 
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	{$theme}
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 

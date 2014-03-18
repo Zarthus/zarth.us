@@ -1,5 +1,16 @@
 <?php 
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
+/**
+ *	Footer
+ *	
+ *	The website footer that is included on every page.
+ *	
+ *	@package	zarth.us
+ *	@author		Zarthus <zarthus@zarth.us>
+ *	@link		https://github.com/Zarthus/zarth.us
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@since		18/03/2014
+ */
 
 $year_made = 2014;
 $year_curr = date('Y');
@@ -16,7 +27,7 @@ $footer = <<<FOOTER
 			and <a title='Those icons are all Font Awesomes doing.' href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a></small>
 		</div>
 		<div class="col-md-3">
-			<p><a href="#">Back to top</a></p>
+			<p><a href="#top">Back to top</a></p>
 		</div>
 	</div>
 FOOTER;

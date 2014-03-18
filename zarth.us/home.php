@@ -1,4 +1,19 @@
-<?php require_once('includes/php/init.php'); $site_name = getSiteName(); ?>
+<?php 
+/**
+ *	Home
+ *	
+ *	Index page for zarth.us
+ *
+ *	@package	zarth.us
+ *	@author		Zarthus <zarthus@zarth.us>
+ *	@link		https://github.com/Zarthus/zarth.us
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@since		18/03/2014
+ */
+define("USER_PATH", "Home - home.php");
+require_once('includes/php/init.php'); 
+$site_name = getSiteName(); 
+?>
 <!DOCTYPE html>
 <html>
 <head>	
@@ -15,15 +30,15 @@
 	<?php parseNavbar($navbar, $navtitle); ?>
 			
 	<div class="container">
-		<div class='content'>
+		<div class="content">
 			<div class="page-header jumbotron">
-				<h1>Welcome to <?php echo getSiteName(true) ?></h1>
-				<hr />
+				<h1><a class="no-link-markup" href="<?php echo $_SERVER['SERVER_NAME'] ?>">Welcome to <?php echo getSiteName(true) ?></a></h1>
+				<hr>
 			</div>
 			<p>
 				Quite honestly, I have no idea what to put here, so check out some of my projects and things I've spent time on!
 			</p>
-			<br /><br />
+			<br><br>
 			<div class="row">
 			<?php 
 			if (isset($lfm['enabled']) && $lfm['enabled']) 
@@ -41,9 +56,9 @@
 				?>
 					
 			<div class="col-md-12">
-				<h2><?php echo "<a href='" . $lfm['url'] . "'>BuuGhost</a>" ?> on Last.fm</h2>
+				<h2><?php echo "<a href=\"" . $lfm['url'] . "\">BuuGhost</a>" ?> on Last.fm</h2>
 			</div>
-				<div id='last-fm'>
+				<div id="last-fm">
 					<?php
 					try {
 						$xml = User::getRecentTracks($lfm['user']); 
@@ -83,18 +98,18 @@
 			<?php 
 			}
 			?>
-			<br />
-			<hr />
-			<br />
+			<br>
+			<hr>
+			<br>
 			<div class="row homedisplay">
 				<div class="col-md-4 marketing-text">
 					<h2>
 						<a href="projects" class="blog noline"><span class="fa fa-fw fa-folder-open"></span> Projects</a>
 					</h2>   
 					<p>
-						I've done a few things over the years, like making <a href='http://<?php echo $site_name ?>'>this website</a>,
+						I've done a few things over the years, like making <a href="http://<?php echo $site_name ?>">this website</a>,
 						developing a few <a>IRC Bots</a>,
-						and solve problems on <a href='http://projecteuler.net'>Project Euler</a>.
+						and solve problems on <a href="http://projecteuler.net">Project Euler</a>.
 					</p>
 				</div>
 
