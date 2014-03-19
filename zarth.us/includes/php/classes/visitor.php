@@ -74,7 +74,7 @@ class Visitor
 		$this->user_querystring 	= !empty($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : "No querystring";
 		$this->user_lang 			= !empty($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : "Unknown";
 		$this->user_useragent 		= !empty($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "No user agent";
-		$this->user_path 			= $this->getUserPath();
+		$this->setUserPath();
 		
 		$this->visitor_table = Utilities::sanitizeTableName($table_name);
 		if ($create_table) $this->createTables();
@@ -180,24 +180,24 @@ class Visitor
 	}
 	 
 	/**
-	 *	Get User Path
+	 *	Set User Path
 	 *
 	 *	Try to determine which page the user is visiting.
 	 *
 	 *	@return string the page the user is visiting. 
 	 *	@access private
 	 */
-	private function getUserPath()
+	private function setUserPath()
 	{
 		// The script itself can give a far more accurate naming to the 
 		// places the user visits than $_SERVER ever can.
-		if (defined("USER_PATH")) return USER_PATH;		
+		if (defined("USER_PATH")) $this->user_path = USER_PATH;		
 		
-		if (isset($_SERVER['SCRIPT_NAME'])) return $_SERVER['SCRIPT_NAME'];
-		if (isset($_SERVER['SCRIPT_FILENAME'])) return $_SERVER['SCRIPT_FILENAME'];
-		if (isset($_SERVER['PHP_SELF'])) return $_SERVER['PHP_SELF'];
+		if (isset($_SERVER['SCRIPT_NAME'])) $this->user_path = $_SERVER['SCRIPT_NAME'];
+		if (isset($_SERVER['SCRIPT_FILENAME'])) $this->user_path = $_SERVER['SCRIPT_FILENAME'];
+		if (isset($_SERVER['PHP_SELF'])) $this->user_path = $_SERVER['PHP_SELF'];
 
-		return "Unknown";
+		$this->user_path = "Unknown";
 	}
 	 
 	/**
