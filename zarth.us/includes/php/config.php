@@ -46,7 +46,7 @@ $web['description'] = '';
 $lfm['enabled'] = true;
 $lfm['user'] = 'BuuGhost';
 $lfm['url'] = 'http://www.last.fm/user/' . $lfm['user'];
-$lfm['api_key'] = '****';
+# $lfm['api_key'] = '****';
 $lfm['cache'] = true;
 
 // Google Analytics Array
