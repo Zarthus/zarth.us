@@ -80,4 +80,5 @@ if (!defined("USER_PATH"))
 {
 	# TODO: Log Notice
 }
-new Visitor($dbh);
+$visitor = new Visitor($dbh);
+$logger = new Logger($dbh, $visitor->getUserInsertID());
