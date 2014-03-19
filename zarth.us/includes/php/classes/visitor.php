@@ -58,7 +58,7 @@ class Visitor
 	 */
 	public function __construct($dbh, $insert_immediately = true, $create_table = true, $table_name = "visitor")  
 	{
-		if ( !($dbh instanceof PDO) )
+		if (!($dbh instanceof PDO))
 		{
 			throw new Exception("\$dbh is not instance of PDO");
 		}
@@ -101,7 +101,7 @@ class Visitor
 			VALUES
 			(:unique, :ip, :ulang, :uagent, :upath, :uquerystring)
 		");
-		$stmt->bindParam(':unique', $unique, PDO::PARAM_INT, 1);
+		$stmt->bindParam(':unique', $unique, PDO::PARAM_INT, 12);
 		$stmt->bindParam(':ip', $this->user_ip, PDO::PARAM_STR, 40);
 		$stmt->bindParam(':ulang', $this->user_lang, PDO::PARAM_STR, 128);
 		$stmt->bindParam(':uagent', $this->user_useragent, PDO::PARAM_STR, 128);
@@ -142,6 +142,7 @@ class Visitor
 	 *
 	 *	Try to determine which page the user is visiting.
 	 *
+	 *	@return string the page the user is visiting. 
 	 *	@access private
 	 */
 	private function getUserPath()
