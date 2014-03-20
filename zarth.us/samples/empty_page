@@ -1,8 +1,9 @@
 <?php 
 /**
- *	{title}
+ *	Empty Page
  *	
- *	{description}
+ *	This is the default website template for zarth.us.
+ *	All content is undocumented, for documentation view http://zarth.us/samples/empty_page_explained
  *
  *	@package	zarth.us
  *	@author		Zarthus <zarthus@zarth.us>
@@ -17,7 +18,7 @@ require_once('includes/php/init.php');
 <html>
 <head>	
 	<?php 
-		$web['description'] = 'Site Description in <meta> tag';
+		$web['description'] = ''; 
 		$web['theme'] = 'zarthus-theme.css';
 	
 		include(HTMLDIR . '/head.php'); 

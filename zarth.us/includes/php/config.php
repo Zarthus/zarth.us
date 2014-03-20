@@ -1,7 +1,7 @@
 <?php
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
 /**
- *	Config
+ *	Configuration
  *	
  *	The file to configure some of the dynamic things
  *	on the website.

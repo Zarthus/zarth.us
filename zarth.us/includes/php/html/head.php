@@ -29,6 +29,12 @@ if (!empty($web['theme']) && file_exists(CSSDIR . "/" . $web['theme']))
 else
 {
 	$head_theme .= '<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">';
+	
+	if (!empty($web['theme'])) 
+	{
+		$logger->notice("CSS Theme " . CSSDIR . '/' . $web['theme'] . " does not exist; including default bootstrap theme instead.", 
+			"This occurs when \$web['theme'] is pointing towards an empty file or is empty.");
+	}
 }
 
 $head_title = '';
