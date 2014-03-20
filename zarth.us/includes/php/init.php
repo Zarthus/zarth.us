@@ -18,7 +18,14 @@ define("SITE_INIT", true);
 
 // Development modes: development (all else is production.)
 // Setting this to development shows error notices to everyone. 
-define("SCRIPT_ENVIRONMENT", 'development');
+if ($_SERVER['SERVER_NAME'] == 'localhost')
+{
+	define("SCRIPT_ENVIRONMENT", 'development');
+}
+else
+{
+	define("SCRIPT_ENVIRONMENT", 'production');
+}
 
 // Location of some directories
 define("ROOTDIR", dirname(__DIR__));
@@ -40,7 +47,6 @@ if (SCRIPT_ENVIRONMENT == 'development')
 {
 	error_reporting(-1);
 	ini_set('display_errors', 1);
-	// $logger->setLogLevel(LOG_LEVEL_ALL);
 }
 else
 {
@@ -48,21 +54,11 @@ else
 	ini_set('display_errors', 0);
 }
 
-if (isset($lfm['enabled']) && $lfm['enabled'])
-{
-	if (!isset($lfm['user']) || !isset($lfm['url']) || !isset($lfm['api_key']))
-	{
-		# TODO: Log error
-		throw new Exception('Last FM not properly configured');
-	}
-	
-}
-
 // Make the database connection
 try {
 	$dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 } catch (PDOException $e) {
-	if (ini_get('display_errors') == 1) 
+	if (SCRIPT_ENVIRONMENT == 'development') 
 	{
 		echo $e->getMessage() . "<br />\n";
 	}
@@ -76,9 +72,29 @@ unset($host, $dbname, $user, $pass);
 // Please ensure you set "USER_PATH" to the file, path, or small description 
 // of where the user is in prior to including init.php to verify the path is 
 // correctly loaded.
+$visitor = new Visitor($dbh);
+
+// Also allow debug messages if script environment = development.
+if (SCRIPT_ENVIRONMENT == 'development') {
+	$logger = new Logger($dbh, $visitor->getUserInsertID(), true, true, true);
+} else {
+	$logger = new Logger($dbh, $visitor->getUserInsertID(), true, true, false);
+}
+
+$logger->debug("Added visitor database entry with ID: " . $visitor->getUserInsertID() . ".");
+
+
+
+if (isset($lfm['enabled']) && $lfm['enabled'])
+{
+	if (!isset($lfm['user']) || !isset($lfm['url']) || !isset($lfm['api_key']))
+	{
+		$logger->error("Last FM is not properly configured, but it was enabled.", "user set: " . (isset($lfm['user']) ? "Yes" : "No") . "  | url set: " . (isset($lfm['url']) ? "Yes" : "No") . "  api_key set: " . (isset($lfm['api_key']) ? "Yes" : "No"));
+		$lfm['enabled'] = false;
+	}
+}
+
 if (!defined("USER_PATH"))
 {
-	# TODO: Log Notice
+	$logger->notice("Suboptimal configuration; USER_PATH is not defined", "Please ensure you define USER_PATH on every accessable page for more descriptive logging"); 
 }
-$visitor = new Visitor($dbh);
-$logger = new Logger($dbh, $visitor->getUserInsertID());
