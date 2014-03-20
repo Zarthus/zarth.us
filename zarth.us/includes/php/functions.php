@@ -291,7 +291,8 @@ function getGoogleAnalytics($ga)
 
 	if (!isset($ga['ua_id']) || !isset($ga['site']))
 	{
-		//TODO: Log error
+		Logger:getInstance()->error("Google Analytics was enabled but incorrectly configured. ua_id: " . (isset($ga['ua_id']) ? "set" : "not set") . " | site: " . (isset($ga['site']) ? "set" : "not set"), 
+			__FUNCTION__ . ": You will have to properly configure google analytics (\$ga) in /includes/php/config.php");
 	}
 	else
 	{
