@@ -28,8 +28,7 @@ require_once('includes/php/init.php');
 <body>
 	<?php include(HTMLDIR . '/navbar.php'); ?>
 			
-	<div class="container">
-		<div class="content">
+	<div class="container content">
 			<div class="page-header jumbotron">
 				<h1><a class="no-link-markup" href="<?php echo $_SERVER['SERVER_NAME'] ?>">Welcome to <?php echo getSiteName(true) ?></a></h1>
 				<hr>
@@ -38,12 +37,12 @@ require_once('includes/php/init.php');
 				Quite honestly, I have no idea what to put here, so check out some of my projects and things I've spent time on!
 			</p>
 			<br><br>
-			<div class="row">
+
 			<?php include(HTMLDIR . '/lastfm.php'); ?>
-			<br>
 			<hr>
 			<br>
-			<div class="row homedisplay">
+
+			<div class="row">
 				<div class="col-md-4 marketing-text">
 					<h2>
 						<a href="projects" class="blog noline"><span class="fa fa-fw fa-folder-open"></span> Projects</a>
@@ -79,6 +78,6 @@ require_once('includes/php/init.php');
 		</footer>
 	</div><!-- /.container -->
 			
-	<?php include(HTMLDIR . "/body.php"); ?>
+	<?php include(HTMLDIR . '/body.php'); ?>
 </body>
 </html>

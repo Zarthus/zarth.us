@@ -4,7 +4,9 @@ if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot 
  *	Last FM
  *	
  *	Include the Last FM html by including this file; this prints two columns of data. 
- *	This assumes a row class is already opened. Used in home.php
+ *	Used in home.php
+ *
+ *	Does not parse if $lfm['enabled'] is unset or disabled.
  *	
  *	@package	zarth.us
  *	@author		Zarthus <zarthus@zarth.us>
@@ -28,10 +30,10 @@ if (isset($lfm['enabled']) && $lfm['enabled'])
 	if ($lfm['enabled']) 
 	{
 		?>
-			
-	<div class="col-md-12">
-		<h2><?php echo "<a href=\"" . $lfm['url'] . "\">BuuGhost</a>" ?> on Last.fm</h2>
-	</div>
+	<div class="row">		
+		<div class="col-md-12">
+			<h2><?php echo "<a href=\"" . $lfm['url'] . "\">BuuGhost</a>" ?> on Last.fm</h2>
+		</div>
 		<div id="last-fm">
 			<?php
 			try {
