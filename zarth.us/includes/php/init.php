@@ -98,3 +98,5 @@ if (!defined("USER_PATH"))
 {
 	$logger->notice("Suboptimal configuration; USER_PATH is not defined", "Please ensure you define USER_PATH on every accessable page for more descriptive logging"); 
 }
+
+$site_name = getSiteName(); 

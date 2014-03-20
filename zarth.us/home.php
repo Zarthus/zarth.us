@@ -12,7 +12,6 @@
  */
 define("USER_PATH", "Home - home.php");
 require_once('includes/php/init.php'); 
-$site_name = getSiteName(); 
 ?>
 <!DOCTYPE html>
 <html>
