@@ -125,7 +125,16 @@ class Visitor
 		if ($unique === false) 
 		{
 			$unique = -1;
-			# TODO: Log Error
+			try {
+				Logger::getInstance()->error("Amount of unique visits of {$this->user_ip} was FALSE.", "In the Visitor class, the amount of user visits was false, rather than an expected integer.");
+			} catch (Exception $e) {
+				# TODO: Maybe make a log queue to process? This would only occur on startup where the logger is not yet initialised, and $insert_immediately is set.
+				# Let's just silently drop the error for now, unless we're in the developers environment.
+				if (SCRIPT_ENVIRONMENT == 'development') 
+				{
+					echo $e->getMessage();
+				}
+			}
 		}
 		
 		// Insert the data into the database
@@ -144,7 +153,7 @@ class Visitor
 		$stmt->execute();
 		
 		// Fetch the last inserted id from the database.
-		$stmt = $this->dbh->prepare("SELECT id FROM `{$this->visitor_table}` WHERE `unique_visitor` = :unique AND `user_ip` = :ip LIMIT 1 ORDER BY `id` DESC");
+		$stmt = $this->dbh->prepare("SELECT id FROM `{$this->visitor_table}` WHERE `unique_visitor` = :unique AND `user_ip` = :ip ORDER BY `id` DESC LIMIT 1 ");
 		$stmt->bindParam(':unique', $unique, PDO::PARAM_INT, 12);
 		$stmt->bindParam(':ip', $this->user_ip, PDO::PARAM_STR, 40);
 		$stmt->execute();
