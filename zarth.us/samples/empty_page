@@ -1,0 +1,49 @@
+<?php 
+/**
+ *	{title}
+ *	
+ *	{description}
+ *
+ *	@package	zarth.us
+ *	@author		Zarthus <zarthus@zarth.us>
+ *	@link		https://github.com/Zarthus/zarth.us
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@since		dd/mm/yyyy
+ */
+define("USER_PATH", "Sample Page - file_name.extension");
+require_once('includes/php/init.php'); 
+?>
+<!DOCTYPE html>
+<html>
+<head>	
+	<?php 
+		$web['description'] = 'Site Description in <meta> tag';
+		$web['theme'] = 'zarthus-theme.css';
+	
+		include(HTMLDIR . '/head.php'); 
+	?>
+		
+</head>
+
+<body>
+	<?php include(HTMLDIR . '/navbar.php'); ?>
+			
+	<div class="container content">
+		<div class="page-header jumbotron">
+			<h1>Jumbotron content</h1>
+			<hr>
+		</div>
+		<br><br>
+
+		<!-- You can put content here, woo! -->
+
+		<hr>
+		<footer>
+			<?php include_once(HTMLDIR . '/footer.php') ?>
+			
+		</footer>
+	</div><!-- /.container -->
+			
+	<?php include(HTMLDIR . '/body.php'); ?>
+</body>
+</html>
