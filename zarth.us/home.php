@@ -134,7 +134,7 @@ require_once('includes/php/init.php');
 
 		<hr>
 		<footer>
-			<?php include_once('includes/php/footer.php') ?>
+			<?php include_once(HTMLDIR . '/footer.php') ?>
 			
 		</footer>
 	</div><!-- /.container -->

@@ -30,4 +30,6 @@ echo <<<FOOTER
 			<p><a href="#top">Back to top</a></p>
 		</div>
 	</div>
+	<br>
 FOOTER;
+?>
