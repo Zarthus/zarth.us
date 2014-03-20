@@ -46,7 +46,7 @@ $web['description'] = '';
 $lfm['enabled'] = true;
 $lfm['user'] = 'BuuGhost';
 $lfm['url'] = 'http://www.last.fm/user/' . $lfm['user'];
-# $lfm['api_key'] = '****';
+$lfm['api_key'] = '****';
 $lfm['cache'] = true;
 
 // Google Analytics Array
@@ -60,7 +60,14 @@ $ga['ua_id'] = "UA-48792360-1";
 $ga['site'] = 'zarth.us';
 
 // The title is displayed left of the navigation bar, but not required.
-$navtitle = '';
+if (SCRIPT_ENVIRONMENT == 'development')
+{	// To make sure we know we are in the developer modes, otherwise there is no way of knowing.
+	$navtitle = '<span style="color: #bb00bb">developers environment</span>';
+}
+else
+{
+	$navtitle = '';
+}
 // The navigation bar
 $navbar = array
 (
