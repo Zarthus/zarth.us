@@ -1,4 +1,4 @@
-<?php
+<?php #TODO: Some content is undocumented still
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
 /**
  *	Functions
@@ -130,8 +130,6 @@ HEAD;
 
 function parseDefaultBody($ga = array())
 {
-	// $jsDir = JSDIR;
-	//<script src="$jsDir/jquery.min.js"></script>
 	$ganal = getGoogleAnalytics($ga);
 
 	echo <<<BODY
@@ -280,18 +278,20 @@ NAVBAR;
 /** 
  *	parseGoogleAnalytics
  *
- *	@param array $ga - The google analytics array defined in config.php
+ *	Return the Google Analytic code, used in parseDefaultBody(), this can be
+ *	an empty string if an error occured due or google analytics was disabled.
  *
- *	Return the Google Analytic code. [Used in parseDefaultBody()]
+ *	@param array $ga - The google analytics array defined in config.php
+ *	@return String google analytics code or empty string
  */ 
 function getGoogleAnalytics($ga)
 {
 	// Cut off early if we do not use google analytics.
-	if (!isset($ga['enabled']) || !$ga['enabled']) return;
+	if (!isset($ga['enabled']) || !$ga['enabled']) return "";
 
 	if (!isset($ga['ua_id']) || !isset($ga['site']))
 	{
-		Logger:getInstance()->error("Google Analytics was enabled but incorrectly configured. ua_id: " . (isset($ga['ua_id']) ? "set" : "not set") . " | site: " . (isset($ga['site']) ? "set" : "not set"), 
+		Logger::getInstance()->error("Google Analytics was enabled but incorrectly configured. ua_id: " . (isset($ga['ua_id']) ? "set" : "not set") . " | site: " . (isset($ga['site']) ? "set" : "not set"), 
 			__FUNCTION__ . ": You will have to properly configure google analytics (\$ga) in /includes/php/config.php");
 	}
 	else
@@ -313,6 +313,8 @@ JS;
 
 		return $js;
 	}
+	
+	return "";
 }
 
 function lastfm_init(&$lfm)
