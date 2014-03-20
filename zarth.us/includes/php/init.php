@@ -13,9 +13,9 @@ if (defined("SITE_INIT")) die("You are trying to include the website initialisat
  *	@since		18/03/2014
  */
 
-if (version_compare(PHP_VERSION, '5.4.0', "<")) 
-{
-	die("You need at least a PHP Version of 5.4.0 to make use of this.");
+if (version_compare(PHP_VERSION, '5.4.0', '<')) 
+{	// Successfully tested on version 5.5.9 and 5.4.3, might not work below on versions 5.4.3.
+	die("You need at least a PHP Version of 5.4.0 to make use of this, you are running version " . PHP_VERSION);
 } 
   
 // Setting this makes sure you're authorised to access pages you're otherwise not.
