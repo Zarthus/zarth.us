@@ -26,6 +26,18 @@ $dbname = "website";
 $user 	= "zarth-web";
 $pass 	= "";
  
+
+// Development modes: development (all else is production.)
+// Setting this to development shows error notices to everyone, and logs debug messages. 
+if ($_SERVER['SERVER_NAME'] == 'localhost')
+{
+	define("SCRIPT_ENVIRONMENT", 'development');
+}
+else
+{
+	define("SCRIPT_ENVIRONMENT", 'production');
+} 
+ 
 // Set the title to "Filename" instead of "filename.php" 
 $title = explode('.',  basename($_SERVER['SCRIPT_NAME']))[0];
 $title = strtoupper(substr($title, 0, 1)) . substr($title, 1);
@@ -46,7 +58,8 @@ $web['description'] = '';
 $lfm['enabled'] = true;
 $lfm['user'] = 'BuuGhost';
 $lfm['url'] = 'http://www.last.fm/user/' . $lfm['user'];
-$lfm['api_key'] = '****';
+$lfm['api_key'] = 'd79127f1b41162ef532549c388b88428';
+# $lfm['api_key'] = '****';
 $lfm['cache'] = true;
 
 // Google Analytics Array

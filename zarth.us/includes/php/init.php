@@ -13,19 +13,13 @@ if (defined("SITE_INIT")) die("You are trying to include the website initialisat
  *	@since		18/03/2014
  */
 
+if (version_compare(PHP_VERSION, '5.4.0', "<")) 
+{
+	die("You need at least a PHP Version of 5.4.0 to make use of this.");
+} 
+  
 // Setting this makes sure you're authorised to access pages you're otherwise not.
 define("SITE_INIT", true);
-
-// Development modes: development (all else is production.)
-// Setting this to development shows error notices to everyone. 
-if ($_SERVER['SERVER_NAME'] == 'localhost')
-{
-	define("SCRIPT_ENVIRONMENT", 'development');
-}
-else
-{
-	define("SCRIPT_ENVIRONMENT", 'production');
-}
 
 // Location of some directories
 define("ROOTDIR", dirname(__DIR__));
@@ -35,6 +29,7 @@ define("CLASSDIR", PHPDIR . '/classes');
 
 define("CSSDIR", ROOTDIR . '/css');
 define("JSDIR", ROOTDIR . '/js');
+define("HTMLDIR", ROOTDIR . '/php/html');
 
 // Includes
 require_once('config.php');
