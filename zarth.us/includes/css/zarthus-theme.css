@@ -157,4 +157,18 @@ li .divider {
 /* End of stackoverflow css */
 
 footer { text-align: left; }
+
+/* aboutme.php */
+.col_red {
+    color: red;
+}
+
+.col_red:hover {
+    color: rgba(230, 0, 0, 0.8);
+}
+
+/* The table headers weren't centered.. */
+.table-centered {
+    text-align: center;
+}
 /* EOF */
