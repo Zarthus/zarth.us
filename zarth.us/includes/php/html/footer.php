@@ -16,7 +16,7 @@ $year_made = 2014;
 $year_curr = date('Y');
 $year_string = ($year_made == $year_curr) ? $year_curr : $year_made . ' - ' . $year_curr;
 
-$footer = <<<FOOTER
+echo <<<FOOTER
 	<div class='row' style='text-align: center;'>
 		<div class="col-md-3">
 			<p>&copy; $year_string $site_name</p>\n
@@ -31,5 +31,3 @@ $footer = <<<FOOTER
 		</div>
 	</div>
 FOOTER;
-			
-echo $footer;
