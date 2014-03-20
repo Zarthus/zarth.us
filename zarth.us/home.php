@@ -50,52 +50,55 @@ $site_name = getSiteName();
 				}
 				else
 				{
-					# TODO: Log Error
-					throw new Exception("Could not find LastFM API");
+					$logger->error("Could not find the LastFM api in at " . CLASSDIR . "/LastFM/lastfm.api.php", "The Last FM api on the Home page was not found and thus the last FM page could not be displayed.");
+					$lfm['enabled'] = false;
 				}
-				?>
-					
-			<div class="col-md-12">
-				<h2><?php echo "<a href=\"" . $lfm['url'] . "\">BuuGhost</a>" ?> on Last.fm</h2>
-			</div>
-				<div id="last-fm">
-					<?php
-					try {
-						$xml = User::getRecentTracks($lfm['user']); 
-
-						echo lastfm_generate_html("Recent Tracks", array(
-							$xml[0]->getName() . ' (' . $xml[0]->getArtist() . ')',
-							$xml[1]->getName() . ' (' . $xml[1]->getArtist() . ')',
-							$xml[2]->getName() . ' (' . $xml[2]->getArtist() . ')',
-							$xml[3]->getName() . ' (' . $xml[3]->getArtist() . ')',
-							$xml[4]->getName() . ' (' . $xml[4]->getArtist() . ')',
-						));
-
-					} catch (Error $e) {
-						echo lastfm_generate_html_error("Recent Tracks");
-						if (SCRIPT_ENVIRONMENT == 'development') echo '<p>' . $e->getMessage() . '</p>';
-					}
-					
-					try {
-						$xml = User::getTopArtists($lfm['user']); 
-
-						echo lastfm_generate_html("Top Artists", array(
-							$xml[0]->getName() . ' (' . number_format($xml[0]->getPlayCount()) . ' plays)',
-							$xml[1]->getName() . ' (' . number_format($xml[1]->getPlayCount()) . ' plays)',
-							$xml[2]->getName() . ' (' . number_format($xml[2]->getPlayCount()) . ' plays)',
-							$xml[3]->getName() . ' (' . number_format($xml[3]->getPlayCount()) . ' plays)',
-							$xml[4]->getName() . ' (' . number_format($xml[4]->getPlayCount()) . ' plays)',
-						));
-
-					} catch (Error $e) {
-						echo lastfm_generate_html_error("Top Artists");
-						if (SCRIPT_ENVIRONMENT == 'development') echo '<p>' . $e->getMessage() . '</p>';
-					}
+				if ($lfm['enabled']) 
+				{
 					?>
-					
+						
+				<div class="col-md-12">
+					<h2><?php echo "<a href=\"" . $lfm['url'] . "\">BuuGhost</a>" ?> on Last.fm</h2>
 				</div>
-			</div>
-			<?php 
+					<div id="last-fm">
+						<?php
+						try {
+							$xml = User::getRecentTracks($lfm['user']); 
+
+							echo lastfm_generate_html("Recent Tracks", array(
+								$xml[0]->getName() . ' (' . $xml[0]->getArtist() . ')',
+								$xml[1]->getName() . ' (' . $xml[1]->getArtist() . ')',
+								$xml[2]->getName() . ' (' . $xml[2]->getArtist() . ')',
+								$xml[3]->getName() . ' (' . $xml[3]->getArtist() . ')',
+								$xml[4]->getName() . ' (' . $xml[4]->getArtist() . ')',
+							));
+
+						} catch (Error $e) {
+							echo lastfm_generate_html_error("Recent Tracks");
+							if (SCRIPT_ENVIRONMENT == 'development') echo '<p>' . $e->getMessage() . '</p>';
+						}
+						
+						try {
+							$xml = User::getTopArtists($lfm['user']); 
+
+							echo lastfm_generate_html("Top Artists", array(
+								$xml[0]->getName() . ' (' . number_format($xml[0]->getPlayCount()) . ' plays)',
+								$xml[1]->getName() . ' (' . number_format($xml[1]->getPlayCount()) . ' plays)',
+								$xml[2]->getName() . ' (' . number_format($xml[2]->getPlayCount()) . ' plays)',
+								$xml[3]->getName() . ' (' . number_format($xml[3]->getPlayCount()) . ' plays)',
+								$xml[4]->getName() . ' (' . number_format($xml[4]->getPlayCount()) . ' plays)',
+							));
+
+						} catch (Error $e) {
+							echo lastfm_generate_html_error("Top Artists");
+							if (SCRIPT_ENVIRONMENT == 'development') echo '<p>' . $e->getMessage() . '</p>';
+						}
+						?>
+						
+					</div>
+				</div>
+				<?php 
+				}
 			}
 			?>
 			<br>
