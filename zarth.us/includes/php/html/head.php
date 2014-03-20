@@ -1,15 +1,16 @@
 <?php
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
 /**
- *	Footer
+ *	Head
  *	
- *	The website footer that is included on every page.
+ *	The website head that is included on every page.
+ *	This is the <head> tag content; not the header.
  *	
  *	@package	zarth.us
  *	@author		Zarthus <zarthus@zarth.us>
  *	@link		https://github.com/Zarthus/zarth.us
  *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
- *	@since		18/03/2014
+ *	@since		20/03/2014
  */
 
 $head_extras = "";
