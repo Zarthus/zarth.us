@@ -22,14 +22,17 @@ if (version_compare(PHP_VERSION, '5.4.0', '<'))
 define("SITE_INIT", true);
 
 // Location of some directories
-define("ROOTDIR", dirname(__DIR__));
+define('ROOTDIR', '/');
+define('CURDIR', './');
 
-define("PHPDIR", ROOTDIR . '/php');
+define('INCDIR', CURDIR . 'includes');
+
+define("PHPDIR", INCDIR . '/php');
 define("CLASSDIR", PHPDIR . '/classes');
+define("HTMLDIR", PHPDIR . '/html');
 
-define("CSSDIR", ROOTDIR . '/css');
-define("JSDIR", ROOTDIR . '/js');
-define("HTMLDIR", ROOTDIR . '/php/html');
+define("CSSDIR", INCDIR . '/css');
+define("JSDIR", INCDIR . '/js');
 
 // Includes
 require_once('config.php');
