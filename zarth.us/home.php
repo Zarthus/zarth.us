@@ -20,7 +20,7 @@ require_once('includes/php/init.php');
 		$web['description'] = 'Welcome to ' . $site_name . ', there is no place like home.';
 		$web['theme'] = 'zarthus-theme.css';
 	
-		parseDefaultHead($web); 
+		include(HTMLDIR . '/head.php'); 
 	?>
 		
 </head>
