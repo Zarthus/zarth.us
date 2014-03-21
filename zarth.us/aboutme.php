@@ -203,21 +203,6 @@ require_once('includes/php/init.php');
 		</div>
 		
 		<hr>
-		
-		<div class="row">
-			<div class="col-md-offset-2 col-md-8">
-				<h3>Contacting me</h3>
-				<p>
-					Apart from IRC, you can also send me an email: &quot;zarthus<i> <!-- Spells '@' --> &#97;&#116; </i>zar<!--Just to keep the bots out-->th<i> <!-- Spells 'dot' --> &#100;&#111;&#116; </i>us&quot;, where the italics should be replaced with '@' and '.' respectively.
-					<br><br>
-					<h4>Reporting Bugs or sending in Suggestions</h4>
-					If you managed to find a bug in my website, it's appreciated if you could create an issue on its <a href="http://github.com/Zarthus/zarth.us/issues/new">actual repository over at GitHub</a>, 
-					but any form of bug reporting (being it IRC, email or just GitHub) is appreciated. 
-				</p>
-			</div>
-		</div>
-
-		<hr>
 		<footer>
 			<?php include_once(HTMLDIR . '/footer.php') ?>
 			
