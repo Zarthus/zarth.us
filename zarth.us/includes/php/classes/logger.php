@@ -166,7 +166,7 @@ class Logger
 		if (!$this->log_errors) return false;
 		if ($description == "") $description = "No description provided";
 
-		$this->log('error', $message, $description);
+		$this->log($errtype, $message, $description);
 		
 		return true;
 	}
@@ -186,7 +186,7 @@ class Logger
 		if (!$this->log_errors) return false;
 		if ($description == "") $description = "No description provided";
 
-		$this->log($errtype, $message, $description);
+		$this->log('error', $message, $description);
 		
 		return true;
 	}
