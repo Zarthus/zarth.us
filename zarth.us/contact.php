@@ -52,6 +52,9 @@ require_once('includes/php/init.php');
 					On EsperNet, you can find me in the channels <code>#lobby</code> and <code>#zarthus</code>, but <code>/msg Zarthus &lt;your message&gt;</code> also works.
 					<br><br>
 					On Freenode, I don't really have any frequent channels, but I mostly talk in <code>#web</code>, <code>##php</code>, <code>#freenode</code>. Opening a query by <code>/msg Zarthus &lt;your message&gt;</code> is encouraged, though.
+					<br><br>
+					<strong>Please note</strong>, Apart from <code>#zarthus</code>, none of the above mentioned channels are part of this website.
+					
 				</p>
 			</div>
 		</div>
