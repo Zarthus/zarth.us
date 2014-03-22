@@ -49,6 +49,8 @@ $web['title_prefix'] = '';
 $web['title_suffix'] = $_SERVER['SERVER_NAME'];	
 // The description in the <meta> tag.
 $web['description'] = '';
+// Display the time it took to execute in the footer.
+$web['footer_exec_time'] = false;
 	
 // Last FM: Display your LastFM data on the home page.
 // If enabled, the `user`, `url`, and `api_key` items are required. 

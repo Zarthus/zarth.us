@@ -16,8 +16,24 @@ $year_made = 2014;
 $year_curr = date('Y');
 $year_string = ($year_made == $year_curr) ? $year_curr : $year_made . ' - ' . $year_curr;
 
+$debug_footer_info = "";
+if (SCRIPT_ENVIRONMENT == 'development') 
+{
+	$debug_footer_info .= '</div><div class="row"><div class="col-md-4">';	
+	$debug_footer_info .= "Execution time: " . round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 5) . " ms";
+	$debug_footer_info .= '</div><div class="col-md-offset-4 col-md-4">';
+	$debug_footer_info .= "development mode";
+	$debug_footer_info .= '</div></div>' . "\n";
+}
+else if (isset($web['footer_exec_time']) && $web['footer_exec_time'])
+{
+	$debug_footer_info .= '</div><div class="row"><div class="col-md-offset-4 col-md-4">';	
+	$debug_footer_info .= "Execution time: " . round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 5) . " ms";
+	$debug_footer_info .= '</div></div>' . "\n";
+}
+
 echo <<<FOOTER
-	<div class='row' style='text-align: center;'>
+	<div class='row'>
 		<div class="col-md-3">
 			<p>&copy; $year_string $site_name</p>\n
 		</div>
@@ -29,6 +45,7 @@ echo <<<FOOTER
 		<div class="col-md-3">
 			<p><a href="#top">Back to top</a></p>
 		</div>
+		{$debug_footer_info}
 	</div>
 	<br>
 FOOTER;
