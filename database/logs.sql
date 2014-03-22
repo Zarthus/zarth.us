@@ -1,3 +1,6 @@
+-- This is also used in /includes/php/classes/logger.php
+-- If you modify this file, make sure to look at Logger::createTables()
+
 CREATE TABLE IF NOT EXISTS `logs` (
   `id` int(12) unsigned NOT NULL AUTO_INCREMENT,
   `visitor_id` int(12) unsigned NOT NULL,

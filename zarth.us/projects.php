@@ -13,6 +13,23 @@
 define("USER_PATH", "Projects - projects.php");
 require_once('includes/php/init.php'); 
 
+$dbh->query("
+	CREATE TABLE IF NOT EXISTS `projects` (
+	  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	  `project_name` varchar(64) NOT NULL,
+	  `project_author_title` varchar(64) NOT NULL,
+	  `project_url` varchar(128) NOT NULL,
+	  `project_language` varchar(32) NOT NULL,
+	  `project_desc` varchar(1024) NOT NULL,
+	  `project_start` varchar(25) NOT NULL,
+	  `project_end` varchar(25) NOT NULL,
+	  `project_author` varchar(128) NOT NULL,
+	  `project_state` varchar(25) NOT NULL,
+	  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	  PRIMARY KEY (`id`)
+	) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+");
+
 $stmt = $dbh->query("SELECT * FROM `projects`");
 $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -44,7 +61,6 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		</div>
 		
 		<!-- Start Project listing -->
-		
 		<?php
 			
 			foreach($projects as $project)
@@ -91,3 +107,4 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	<?php include(HTMLDIR . '/body.php'); ?>
 </body>
 </html>
+<?php $logger->debug("Found a total of $count projects; and displayed them to the visitor"); ?>
