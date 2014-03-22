@@ -3,13 +3,13 @@
 CREATE TABLE IF NOT EXISTS `projects` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `project_name` varchar(64) NOT NULL,
-  `project_author_title` varchar(64) NOT NULL,
   `project_url` varchar(128) NOT NULL,
   `project_language` varchar(32) NOT NULL,
   `project_desc` varchar(1024) NOT NULL,
   `project_start` varchar(25) NOT NULL,
   `project_end` varchar(25) NOT NULL,
   `project_author` varchar(128) NOT NULL,
+  `project_author_title` varchar(64) NOT NULL,
   `project_state` varchar(25) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
