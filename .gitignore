@@ -4,4 +4,4 @@
 */cache/*
 */cache/!index.html
 ignore
-zarth.us/includes/php/config.php
+*/includes/php/config.php
