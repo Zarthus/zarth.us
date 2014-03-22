@@ -26,7 +26,8 @@ if (!file_exists('config.php'))
 	{
 		die("Could not find config.php, but config.default.php was found, please copy this file and rename it to 'config.php', then configure it to your desire.");
 	}
-	die("Could not find config.default.php or config.php, please ensure everything was installed properly.");
+	die("Could not find config.default.php or config.php, please ensure everything was installed properly. " .
+		"<br>If you are at a total loss, you can get the default configuration at <a href='http://zarth.us/source/default_configuration'>http://zarth.us/source/default_configuration</a>");
 }
   
 // Setting this makes sure you're authorised to access pages you're otherwise not.
