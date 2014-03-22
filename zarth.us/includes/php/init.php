@@ -18,18 +18,6 @@ if (version_compare(PHP_VERSION, '5.4.0', '<'))
 	die("You need at least a PHP Version of 5.4.0 to make use of this, you are running version " . PHP_VERSION);
 } 
 
-// Config.php needs to exist to continue, if it does exist, all is well.
-// if it doesn't, we look for the default configuration file, and notify the user he needs to copy that.  
-if (!file_exists('config.php')) 
-{
-	if (file_exists('config.default.php')) 
-	{
-		die("Could not find config.php, but config.default.php was found, please copy this file and rename it to 'config.php', then configure it to your desire.");
-	}
-	die("Could not find config.default.php or config.php, please ensure everything was installed properly. " .
-		"<br>If you are at a total loss, you can get the default configuration at <a href='http://zarth.us/source/default_configuration'>http://zarth.us/source/default_configuration</a>");
-}
-  
 // Setting this makes sure you're authorised to access pages you're otherwise not.
 define("SITE_INIT", true);
 
@@ -46,8 +34,20 @@ define("HTMLDIR", PHPDIR . '/html');
 define("CSSDIR", INCDIR . '/css');
 define("JSDIR", INCDIR . '/js');
 
+// Config.php needs to exist to continue, if it does exist, all is well.
+// if it doesn't, we look for the default configuration file, and notify the user he needs to copy that.  
+if (!file_exists(PHPDIR . '/config.php')) 
+{
+	if (file_exists(PHPDIR . '/config.default.php')) 
+	{
+		die("Could not find config.php, but config.default.php was found, please copy this file and rename it to 'config.php', then configure it to your desires.");
+	}
+	die("Could not find config.default.php or config.php, please ensure everything was installed properly. " .
+		"<br>If you are at a total loss, you can get the default configuration at <a href='http://zarth.us/source/default_configuration'>http://zarth.us/source/default_configuration</a>");
+}
+
 // Includes
-require_once('config.php');
+require_once(PHPDIR . '/config.php');
 require_once(CLASSDIR . '/autoloader.php');
 
 include_once('functions.php');
