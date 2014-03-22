@@ -13,31 +13,41 @@ if (defined("SITE_INIT")) die("You are trying to include the website initialisat
  *	@since		18/03/2014
  */
 
+if (version_compare(PHP_VERSION, '5.4.0', '<')) 
+{	// Successfully tested on version 5.5.9 and 5.4.3, might not work below on versions 5.4.3.
+	die("You need at least a PHP Version of 5.4.0 to make use of this, you are running version " . PHP_VERSION);
+} 
+
 // Setting this makes sure you're authorised to access pages you're otherwise not.
 define("SITE_INIT", true);
 
-// Development modes: development (all else is production.)
-// Setting this to development shows error notices to everyone. 
-if ($_SERVER['SERVER_NAME'] == 'localhost')
-{
-	define("SCRIPT_ENVIRONMENT", 'development');
-}
-else
-{
-	define("SCRIPT_ENVIRONMENT", 'production');
-}
-
 // Location of some directories
-define("ROOTDIR", dirname(__DIR__));
+define('ROOTDIR', '/');
+define('CURDIR', './');
 
-define("PHPDIR", ROOTDIR . '/php');
+define('INCDIR', CURDIR . 'includes');
+
+define("PHPDIR", INCDIR . '/php');
 define("CLASSDIR", PHPDIR . '/classes');
+define("HTMLDIR", PHPDIR . '/html');
 
-define("CSSDIR", ROOTDIR . '/css');
-define("JSDIR", ROOTDIR . '/js');
+define("CSSDIR", INCDIR . '/css');
+define("JSDIR", INCDIR . '/js');
+
+// Config.php needs to exist to continue, if it does exist, all is well.
+// if it doesn't, we look for the default configuration file, and notify the user he needs to copy that.  
+if (!file_exists(PHPDIR . '/config.php')) 
+{
+	if (file_exists(PHPDIR . '/config.default.php')) 
+	{
+		die("Could not find config.php, but config.default.php was found, please copy this file and rename it to 'config.php', then configure it to your desires.");
+	}
+	die("Could not find config.default.php or config.php, please ensure everything was installed properly. " .
+		"<br>If you are at a total loss, you can get the default configuration at <a href='http://zarth.us/source/default_configuration'>http://zarth.us/source/default_configuration</a>");
+}
 
 // Includes
-require_once('config.php');
+require_once(PHPDIR . '/config.php');
 require_once(CLASSDIR . '/autoloader.php');
 
 include_once('functions.php');
@@ -55,6 +65,11 @@ else
 }
 
 // Make the database connection
+if ($host == '' || $dbname == '' || $user == '') 
+{
+	die("config.php was not configured properly, please ensure the database details are filled in.");
+}
+
 try {
 	$dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 } catch (PDOException $e) {
@@ -83,8 +98,6 @@ if (SCRIPT_ENVIRONMENT == 'development') {
 
 $logger->debug("Added visitor database entry with ID: " . $visitor->getUserInsertID() . ".");
 
-
-
 if (isset($lfm['enabled']) && $lfm['enabled'])
 {
 	if (!isset($lfm['user']) || !isset($lfm['url']) || !isset($lfm['api_key']))
@@ -98,3 +111,5 @@ if (!defined("USER_PATH"))
 {
 	$logger->notice("Suboptimal configuration; USER_PATH is not defined", "Please ensure you define USER_PATH on every accessable page for more descriptive logging"); 
 }
+
+$site_name = getSiteName(); 

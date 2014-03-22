@@ -156,5 +156,40 @@ li .divider {
 }
 /* End of stackoverflow css */
 
-footer { text-align: left; }
+footer { text-align: center; }
+
+/* aboutme.php */
+.col_red {
+    color: red;
+}
+
+.col_red:hover {
+    color: rgba(230, 0, 0, 0.8);
+}
+
+/* The table headers weren't centered.. */
+.table-centered {
+    text-align: center;
+}
+
+/* Projects.php */
+h2.project-header {
+    text-align: left;
+    margin-left: 50px;
+}
+
+.project-desc {
+    text-align: left;
+}
+
+/* Because working with a non-monspace font trying to align everything would be an ass. */
+.project-wrapper-left {
+    text-align: left;
+    font-family: Consolas, monospace;
+}
+
+/* It's kinda an ugly hack; not sure how else it could be done to ident fa-icons properly from those who don't have an icon, tables maybe? */
+.project-wrapper-left .project-preface {
+    white-space: pre;
+}
 /* EOF */

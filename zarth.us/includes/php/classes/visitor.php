@@ -191,9 +191,9 @@ class Visitor
 	/**
 	 *	Set User Path
 	 *
-	 *	Try to determine which page the user is visiting.
+	 *	Try to determine which page the user is visiting
+	 *	and set it's value in $this->user_path
 	 *
-	 *	@return string the page the user is visiting. 
 	 *	@access private
 	 */
 	private function setUserPath()
@@ -202,11 +202,11 @@ class Visitor
 		// places the user visits than $_SERVER ever can.
 		if (defined("USER_PATH")) $this->user_path = USER_PATH;		
 		
-		if (isset($_SERVER['SCRIPT_NAME'])) $this->user_path = $_SERVER['SCRIPT_NAME'];
-		if (isset($_SERVER['SCRIPT_FILENAME'])) $this->user_path = $_SERVER['SCRIPT_FILENAME'];
-		if (isset($_SERVER['PHP_SELF'])) $this->user_path = $_SERVER['PHP_SELF'];
+		else if (isset($_SERVER['SCRIPT_NAME'])) $this->user_path = $_SERVER['SCRIPT_NAME'];
+		else if (isset($_SERVER['SCRIPT_FILENAME'])) $this->user_path = $_SERVER['SCRIPT_FILENAME'];
+		else if (isset($_SERVER['PHP_SELF'])) $this->user_path = $_SERVER['PHP_SELF'];
 
-		$this->user_path = "Unknown";
+		else $this->user_path = "Unknown";
 	}
 	 
 	/**

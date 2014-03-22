@@ -1,0 +1,121 @@
+<?php 
+/**
+ *	# The title of the file. Usually the file name itself without short hand names (i.e. conf would be configuration)
+ *	Empty Page (explained)
+ *	
+ *	# A small description of what this file actually does.
+ *	This is the default website template for zarth.us.
+ *	All content is explained, for no explanations view http://zarth.us/source/empty_page
+ *	
+ *	# The package
+ *	@package	zarth.us
+ *
+ *	# The author, if there are multiple make a new line with another @author rule.
+ *	@author		Zarthus <zarthus@zarth.us>
+ *
+ *	# The link to the projects website, or in this case, repository
+ *	@link		https://github.com/Zarthus/zarth.us
+ *
+ *	# The license we're under.
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *
+ *	# When was this file first created?
+ *	@since		dd/mm/yyyy
+ */
+ 
+/**
+ *	Define the user path, this is actually very useful as it helps with
+ *	debugging and generally provides more descriptive logs.
+ *
+ *	You also know exactly where the user is in a human readable format; better than
+ *	scripts could ever achieve.
+ *
+ *	Will generate a $logger->notice level error if not set.
+ */ 
+define("USER_PATH", "Sample Page Explained - file_name.extension");
+
+/**
+ *	Require the initialisation of the website.
+ *
+ *	This is the file that includes the autoloader, configuration, and
+ *	all necessary files to make the website run.
+ *
+ *	If this is not included, your website simply will not run.
+ *
+ *	Can only be included once.
+ *
+ *	From this point onwards, $logger, $visitor and functions.php are available.
+ *	Defines: All DIR constants (JSDIR, HTMLDIR, CLASSDIR, ..)
+ */
+require_once('includes/php/init.php'); 
+?>
+<!DOCTYPE html>
+<html>
+<head>	
+	<?php 
+		/**
+		 *	By filling this in, we're adding a META DESCRIPTION tag to our head, 
+		 *	Useful for giving a short description of the current page.
+		 */
+		$web['description'] = ''; 
+
+		/**
+		 *	Include a specific theme, it is assumed to be in CSSDIR (/includes/css)
+		 *
+		 *	If the file does not exist, use the default bootstrap css, and generate a
+		 *	$logger->notice level error. 
+		 */
+		$web['theme'] = 'zarthus-theme.css';
+	
+		/**
+		 *	Include the <head>-specific code of the script. 
+		 *	This processes the $web variable with it.
+		 */
+		include(HTMLDIR . '/head.php'); 
+	?>
+		
+</head>
+
+<body>
+	/**
+	 *	Include the navigation bar; not required but /is/ recommended to have on as
+	 *	many pages as possible.
+	 *
+	 *	The navigation bar is configured in config.php.
+	 */
+	<?php include(HTMLDIR . '/navbar.php'); ?>
+			
+	<div class="container content">
+		<div class="page-header jumbotron">
+			/**
+			 *	This is the main website header.
+			 */
+			<h1>Jumbotron content</h1>
+			<hr>
+		</div>
+		<br><br>
+
+		/**
+		 *	Pretty much untill now we didn't need to touch anything; but here is where we can start.
+		 *	adding html code to form our website.
+		 */
+		<!-- You can put content here, woo! -->
+
+		<hr>
+		<footer>
+			/**
+			 *	We include the footer; it does not wrap itself in <footer> tags in assumption
+			 *	we might want to add something ourselves, or style it differently.
+			 */
+			<?php include_once(HTMLDIR . '/footer.php') ?>
+			
+		</footer>
+	</div><!-- /.container -->
+			
+	/**
+	 *	And at last, we include our bodies extras. The JavaScript includes for bootstrap and jQuery,
+	 *	and Google Analytics if enabled, are processed here.
+	 */
+	<?php include(HTMLDIR . '/body.php'); ?>
+</body>
+</html>

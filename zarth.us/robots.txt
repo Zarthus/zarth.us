@@ -1,2 +1,8 @@
 User-agent: *
 Disallow: /includes/
+
+User-agent: *
+Disallow: /source/
+
+User-agent: *
+Disallow: /licenses/

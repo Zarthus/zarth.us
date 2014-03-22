@@ -151,6 +151,27 @@ class Logger
 	}
 	
 	/**
+	 *	PHP Error
+	 *
+	 *	Log a PHP error to the database, used in the Error Handler.
+	 *	
+	 *	@param String errtype The Error Type (E_NOTICE, E_ERROR, ..) in string format.
+	 *	@param String message The message to log
+	 *	@param String description A small description of what could cause the issue
+	 *	@return Boolean false if error logging is disabled, true otherwise.
+	 *	@access public
+	 */
+	public function php_error($errtype, $message, $description = "")
+	{
+		if (!$this->log_errors) return false;
+		if ($description == "") $description = "No description provided";
+
+		$this->log($errtype, $message, $description);
+		
+		return true;
+	}
+
+	/**
 	 *	Error
 	 *
 	 *	Log an error to the database.

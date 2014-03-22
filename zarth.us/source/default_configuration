@@ -1,7 +1,7 @@
 <?php
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
 /**
- *	Config
+ *	Configuration
  *	
  *	The file to configure some of the dynamic things
  *	on the website.
@@ -21,10 +21,22 @@ if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot 
  */
 
 // Database information
-$host 	= "localhost";
-$dbname = "website";
-$user 	= "zarth-web";
+$host 	= "";
+$dbname = "";
+$user 	= "";
 $pass 	= "";
+ 
+
+// Development modes: development (all else is production.)
+// Setting this to development shows error notices to everyone, and logs debug messages. 
+if ($_SERVER['SERVER_NAME'] == 'localhost')
+{
+	define("SCRIPT_ENVIRONMENT", 'development');
+}
+else
+{
+	define("SCRIPT_ENVIRONMENT", 'production');
+} 
  
 // Set the title to "Filename" instead of "filename.php" 
 $title = explode('.',  basename($_SERVER['SCRIPT_NAME']))[0];
@@ -37,27 +49,29 @@ $web['title_prefix'] = '';
 $web['title_suffix'] = $_SERVER['SERVER_NAME'];	
 // The description in the <meta> tag.
 $web['description'] = '';
+// Display the time it took to execute in the footer.
+$web['footer_exec_time'] = false;
 	
 // Last FM: Display your LastFM data on the home page.
 // If enabled, the `user`, `url`, and `api_key` items are required. 
 // Due to the nature of how this works (sending two requests to the LastFM api)
 //	it's going to slow down your website's home page significantly. So use of 
 //	caching is recommended. Although ideally you try and disable it entirely.
-$lfm['enabled'] = true;
+$lfm['enabled'] = false;
 $lfm['user'] = 'BuuGhost';
 $lfm['url'] = 'http://www.last.fm/user/' . $lfm['user'];
-$lfm['api_key'] = '****';
+# $lfm['api_key'] = '****';
 $lfm['cache'] = true;
 
 // Google Analytics Array
 // Whether or not to use Google Analytics
 // Defaults to false if not set.
-$ga['enabled'] = true;
+$ga['enabled'] = false;
 // User Account ID
 // Should look like: UA-XXXXXX-X
-$ga['ua_id'] = "UA-48792360-1";	
+$ga['ua_id'] = "UA-XXXXXXXX-1";	
 // Website name
-$ga['site'] = 'zarth.us';
+$ga['site'] = '';
 
 // The title is displayed left of the navigation bar, but not required.
 if (SCRIPT_ENVIRONMENT == 'development')
@@ -167,6 +181,16 @@ $navbar = array
 
 		'icon' => 'fa-github',
 	),
+	
+	'contact' => array
+	(
+		'name' => 'Contact',
+		
+		'href' => 'contact',
+		
+		'icon' => 'fa-user',
+	),
 );
 
 # EOF
+
