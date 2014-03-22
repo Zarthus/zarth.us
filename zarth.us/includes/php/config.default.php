@@ -21,9 +21,9 @@ if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot 
  */
 
 // Database information
-$host 	= "localhost";
-$dbname = "website";
-$user 	= "zarth-web";
+$host 	= "";
+$dbname = "";
+$user 	= "";
 $pass 	= "";
  
 
@@ -55,21 +55,21 @@ $web['description'] = '';
 // Due to the nature of how this works (sending two requests to the LastFM api)
 //	it's going to slow down your website's home page significantly. So use of 
 //	caching is recommended. Although ideally you try and disable it entirely.
-$lfm['enabled'] = true;
+$lfm['enabled'] = false;
 $lfm['user'] = 'BuuGhost';
 $lfm['url'] = 'http://www.last.fm/user/' . $lfm['user'];
-$lfm['api_key'] = '****';
+# $lfm['api_key'] = '****';
 $lfm['cache'] = true;
 
 // Google Analytics Array
 // Whether or not to use Google Analytics
 // Defaults to false if not set.
-$ga['enabled'] = true;
+$ga['enabled'] = false;
 // User Account ID
 // Should look like: UA-XXXXXX-X
-$ga['ua_id'] = "UA-48792360-1";	
+$ga['ua_id'] = "UA-XXXXXXXX-1";	
 // Website name
-$ga['site'] = 'zarth.us';
+$ga['site'] = '';
 
 // The title is displayed left of the navigation bar, but not required.
 if (SCRIPT_ENVIRONMENT == 'development')
@@ -191,3 +191,4 @@ $navbar = array
 );
 
 # EOF
+

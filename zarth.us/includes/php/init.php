@@ -17,6 +17,17 @@ if (version_compare(PHP_VERSION, '5.4.0', '<'))
 {	// Successfully tested on version 5.5.9 and 5.4.3, might not work below on versions 5.4.3.
 	die("You need at least a PHP Version of 5.4.0 to make use of this, you are running version " . PHP_VERSION);
 } 
+
+// Config.php needs to exist to continue, if it does exist, all is well.
+// if it doesn't, we look for the default configuration file, and notify the user he needs to copy that.  
+if (!file_exists('config.php')) 
+{
+	if (file_exists('config.default.php')) 
+	{
+		die("Could not find config.php, but config.default.php was found, please copy this file and rename it to 'config.php', then configure it to your desire.");
+	}
+	die("Could not find config.default.php or config.php, please ensure everything was installed properly.");
+}
   
 // Setting this makes sure you're authorised to access pages you're otherwise not.
 define("SITE_INIT", true);
@@ -53,6 +64,11 @@ else
 }
 
 // Make the database connection
+if ($host == '' || $dbname == '' || $user == '') 
+{
+	die("config.php was not configured properly, please ensure the database details are filled in.");
+}
+
 try {
 	$dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 } catch (PDOException $e) {
@@ -80,8 +96,6 @@ if (SCRIPT_ENVIRONMENT == 'development') {
 }
 
 $logger->debug("Added visitor database entry with ID: " . $visitor->getUserInsertID() . ".");
-
-
 
 if (isset($lfm['enabled']) && $lfm['enabled'])
 {
