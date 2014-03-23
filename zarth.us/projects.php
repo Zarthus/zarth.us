@@ -67,7 +67,11 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			{
 				$project_id 		 = $project['id'];
 				$project_url 		 = $project['project_url'];
-				$project_url_icon 	 = strpos($project['project_url'], 'https://github.com') !== FALSE ? 'fa-github-alt' : 'fa-external-link'; 				
+				
+				$is_git_url = strpos($project['project_url'], 'https://github.com') !== FALSE;
+				$project_url_icon 	 = $is_git_url ? 'fa-github-alt' : 'fa-external-link'; 				
+				$project_url_title	 = $is_git_url ? ' title="Project is located on GitHub"' : '';
+				
 				$project_name 		 = htmlentities($project['project_name']);
 				$project_desc 		 = htmlentities($project['project_desc']);
 				$project_language	 = htmlentities($project['project_language']);
@@ -80,7 +84,10 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				$html =  "\n" . '<div class="row project-wrapper">' . "\n";
 				$html .= '	<div class="col-md-offset-1 col-md-3 project-wrapper-left">' . "\n";
 				$html .= '		<i class="fa fa-users"></i><span class="project-preface"> Author: </span><span class="project-author"' . $project_authortitle . '>' . $project_author . "</span><br>\n";
-				$html .= '		<i class="fa ' . $project_url_icon . '"></i><span class="project-preface"> URL   : </span><span class="project-title"><a href="' . $project_url . '">' . $project_name . "</a></span><br>\n";
+				if ($is_git_url) 
+					$html .= '		<span ' . $project_url_title . '><i class="fa ' . $project_url_icon . '"></i><span class="project-preface"> URL   : </span><span class="project-title"><a href="' . $project_url . '">' . $project_name . "</a></span></span><br>\n";
+				else
+					$html .= '		<i class="fa ' . $project_url_icon . '"></i><span class="project-preface"> URL   : </span><span class="project-title"><a href="' . $project_url . '">' . $project_name . "</a></span><br>\n";
 				$html .= '		<i class="fa fa-terminal"></i><span class="project-preface"> Lang  : </span><span>' . $project_language . "</span><br>\n";
 				$html .= '		<span class="project-preface">   Start : </span><span>' . $project_start . "</span><br>\n";
 				if ($project_state == 'Released' || $project_end != 'N/A') 
