@@ -42,16 +42,47 @@ require_once('includes/php/init.php');
 				<h3>Who am I anyways?</h3>
 				<p>
 					I'm Zarthus, but am also known as BuuGhost, or even Jos Ahrens off the internet, I'm from the Netherlands and currently study Software Engineering at the Alfa College in Groningen.
-					<br><br>
+				</p><p>
 					I enjoy programming in various languages, as of right now I am most proficient with PHP, I know a little bit of C# and Java, and am also mildly familiar with the C language.
 					Currently I'm attempting to learn the C++ language. Recently I have also become rather skilled with Regular Expressions.
-					<br><br>
+				</p><p>
 					In relation to music, I enjoy all sorts of music, but most of the genres I listen to are rock, metal or 80s/70s music. 
 					You can check out what I've recently listened to by checking my last fm account <a href="http://last.fm/user/BuuGhost">BuuGhost</a>, or by checking my <a href="http://open.spotify.com/user/1155290200/playlist/4QXARDBPRoe99fObf6e6db">spotify playlist</a>
-					<br><br>					
+				</p><p>					
 					As for languages that don't relate to programming, I natively speak Dutch, and have learnt a great portion of English over the years, starting at the age of 11. 
 					I know a little bit of German in addition to that, as for Spanish, I can usually read a little bit of it, but cannot write or speak it.
 					<br><br>					
+				</p>
+			</div>
+		</div>
+
+		<hr>
+		
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<h3>Contributor of</h3>
+				<p>
+					I happen to be all over the place when it comes to contributing and support.
+				</p><p>
+					<i>Wikipedia</i>
+					<br>
+					I contribute to <a href="https://en.wikipedia.org">Wikipedia</a>, under the name of <a href="https://en.wikipedia.org/wiki/User:Zarthus">Zarthus</a><br>
+					You can find my contributions to Wikipedia <a href="https://en.wikipedia.org/wiki/Special:Contributions/Zarthus">here</a>
+				</p><p>
+					<i>Stack Overflow</i>
+					<br>
+					I roam Stack Overflow and many of its sister and brother websites, but I mostly provide support on <a href="http://stackoverflow.com">Stack Overflow itself</a>.
+					The username there, is as you could have guessed, <a href="http://stackoverflow.com/users/3100691/zarthus">Zarthus</a>.
+				</p><p>
+					<i>GitHub</i>
+					<br>
+					I think I've already advertised my github profile on my website enough, but if for some reason you weren't aware yet, yes I do 
+					help out on github occasionally, my profile is <a href="https://github.com/Zarthus">Zarthus</a>.
+				</p><p>
+					<i>IRC (Internet Relay Chat)</i>
+					<br>
+					I provide support in many channels on freenode and EsperNet. Not too far below here is an IRC section, and you can also look it up in the contact page on the 
+					navigation bar above.
 				</p>
 			</div>
 		</div>
@@ -128,7 +159,7 @@ require_once('includes/php/init.php');
 				</p>
 			</div>
 		</div>
-		
+
 		<hr>
 
 		<div class="row">
