@@ -1,35 +1,35 @@
 <?php
 /**
  *	About Me
- *	
+ *
  *	The page that is all about me, myself and I.
- *	
+ *
  *	@package	zarth.us
  *	@author		Zarthus <zarthus@zarth.us>
  *	@link		https://github.com/Zarthus/zarth.us
- *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository
  *	@since		20/03/2014
  */
- 
+
 define("USER_PATH", "About Me - aboutme.php");
-require_once('includes/php/init.php'); 
+require_once('includes/php/init.php');
 ?>
 <!DOCTYPE html>
 <html>
-<head>	
-	<?php 
-		$web['description'] = 'All about Zarthus'; 
+<head>
+	<?php
+		$web['description'] = 'All about Zarthus';
 		$web['theme'] = 'zarthus-theme.min.css';
 		$web['title'] = 'About Me';
-	
-		include(HTMLDIR . '/head.php'); 
+
+		include(HTMLDIR . '/head.php');
 	?>
-		
+
 </head>
 
 <body>
 	<?php include(HTMLDIR . '/navbar.php'); ?>
-			
+
 	<div class="container content">
 		<div class="page-header jumbotron">
 			<h1>Hey there, I am Zarthus!</h1>
@@ -46,18 +46,18 @@ require_once('includes/php/init.php');
 					I enjoy programming in various languages, as of right now I am most proficient with PHP, I know a little bit of C# and Java, and am also mildly familiar with the C language.
 					Currently I'm attempting to learn the C++ language. Recently I have also become rather skilled with Regular Expressions.
 				</p><p>
-					In relation to music, I enjoy all sorts of music, but most of the genres I listen to are rock, metal or 80s/70s music. 
+					In relation to music, I enjoy all sorts of music, but most of the genres I listen to are rock, metal or 80s/70s music.
 					You can check out what I've recently listened to by checking my last fm account <a href="http://last.fm/user/BuuGhost">BuuGhost</a>, or by checking my <a href="http://open.spotify.com/user/1155290200/playlist/4QXARDBPRoe99fObf6e6db">spotify playlist</a>
-				</p><p>					
-					As for languages that don't relate to programming, I natively speak Dutch, and have learnt a great portion of English over the years, starting at the age of 11. 
+				</p><p>
+					As for languages that don't relate to programming, I natively speak Dutch, and have learnt a great portion of English over the years, starting at the age of 11.
 					I know a little bit of German in addition to that, as for Spanish, I can usually read a little bit of it, but cannot write or speak it.
-					<br><br>					
+					<br><br>
 				</p>
 			</div>
 		</div>
 
 		<hr>
-		
+
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8">
 				<h3>Contributor of</h3>
@@ -76,17 +76,17 @@ require_once('includes/php/init.php');
 				</p><p>
 					<i>GitHub</i>
 					<br>
-					I think I've already advertised my github profile on my website enough, but if for some reason you weren't aware yet, yes I do 
+					I think I've already advertised my github profile on my website enough, but if for some reason you weren't aware yet, yes I do
 					help out on github occasionally, my profile is <a href="https://github.com/Zarthus">Zarthus</a>.
 				</p><p>
 					<i>IRC (Internet Relay Chat)</i>
 					<br>
-					I provide support in many channels on freenode and EsperNet. Not too far below here is an IRC section, and you can also look it up in the contact page on the 
+					I provide support in many channels on freenode and EsperNet. Not too far below here is an IRC section, and you can also look it up in the contact page on the
 					navigation bar above.
 				</p>
 			</div>
 		</div>
-		
+
 		<hr>
 
 		<div class="row">
@@ -175,24 +175,24 @@ require_once('includes/php/init.php');
 		</div>
 
 		<hr>
-		
+
 		<div class="row">
 			<div class="col-md-12">
 				<h3><a href="projects">Why don't you check out some of the projects I have made?</a><h3>
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-offset-1 col-md-4">
 					<h3>For instance, the source code of this website.</h3>
 					<p>
-						<a href="http://zarth.us">zarth.us</a> is open source and available on GitHub at <a href="http://github.com/Zarthus/zarth.us/">http://github.com/Zarthus/zarth.us</a>		
+						<a href="http://zarth.us">zarth.us</a> is open source and available on GitHub at <a href="http://github.com/Zarthus/zarth.us/">http://github.com/Zarthus/zarth.us</a>
 					</p>
 					<br><br>
-					<h3>There's even more!</h3>				
+					<h3>There's even more!</h3>
 					<p>
-						Over at <a href="http://github.com/Zarthus">http://github.com/Zarthus</a> can you find more of my code, like <a href="http://github.com/Zarthus/Code-Snippets">lots of code snippets</a>, 
+						Over at <a href="http://github.com/Zarthus">http://github.com/Zarthus</a> can you find more of my code, like <a href="http://github.com/Zarthus/Code-Snippets">lots of code snippets</a>,
 						this website also displays some projects over at <a href="projects">it's projects page</a>.
 					</p>
 				</div>
@@ -201,30 +201,30 @@ require_once('includes/php/init.php');
 					<p>
 						Over the years, I've made many bots that connect to IRC, some sucked, but I still enjoyed making them.
 						<br>
-					</p>	
-					<p>	
+					</p>
+					<p>
 						<a href="#not-yet-available">Eileen</a> | PHP | <a href="http://github.com/Westie/OUTRAGEbot/">OUTRAGEbot fork</a><br>
 						<small>
 							Eileen is my newest addition to the bot team; an all purpose utility bot
 						</small>
 					</p>
-					
-					<p>	
+
+					<p>
 						<a href="http://github.com/Zarthus/TwitchBot">TwitchBot</a> | PHP | <a href="http://github.com/Westie/OUTRAGEbot/">OUTRAGEbot fork</a><br>
 						<small>
 							TwitchBot was an IRC bot that connects to twitch.tv, it was made to log content from TwitchPlaysPokémon.
 						</small>
 					</p>
-						
+
 					<p>
-						<a href="#source-code-hidden" class="col_red">_404</a> | PHP | Source Code Not Public<br> 
+						<a href="#source-code-hidden" class="col_red">_404</a> | PHP | Source Code Not Public<br>
 						<small>
 							_404 was my first PHP bot - it was pretty ugly and full of security issues, hence it's code is not public.
 						</small>
 					</p>
-						
+
 					<p>
-						<a href="#source-code-lost" class="col_red">Convict</a> | mIRC | Source Code Lost<br> 
+						<a href="#source-code-lost" class="col_red">Convict</a> | mIRC | Source Code Lost<br>
 						<small>
 							Convict was an all utility mIRC bot that had a lot of functions, like my Games System.
 							I'd imagine some of its functions are on <a href="https://github.com/Zarthus/Code-Snippets/tree/master/mSL%20-%20mIRC%20scripting%20language">GitHub</a> now, but it's core is gone forever.
@@ -233,14 +233,14 @@ require_once('includes/php/init.php');
 				</div>
 			</div>
 		</div>
-		
+
 		<hr>
 		<footer>
 			<?php include_once(HTMLDIR . '/footer.php') ?>
-			
+
 		</footer>
 	</div><!-- /.container -->
-			
+
 	<?php include(HTMLDIR . '/body.php'); ?>
 </body>
 </html>
