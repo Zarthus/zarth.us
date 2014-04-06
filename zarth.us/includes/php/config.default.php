@@ -2,7 +2,7 @@
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
 /**
  *	Configuration
- *	
+ *
  *	The file to configure some of the dynamic things
  *	on the website.
  *
@@ -11,12 +11,12 @@ if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot 
  *	  Website settings (title, meta description)
  *	  Last FM API Usage
  *	  Use of Google Analytics
- *	  Navigation panel	
+ *	  Navigation panel
  *
  *	@package	zarth.us
  *	@author		Zarthus <zarthus@zarth.us>
  *	@link		https://github.com/Zarthus/zarth.us
- *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository
  *	@since		18/03/2014
  */
 
@@ -25,10 +25,10 @@ $host 	= "";
 $dbname = "";
 $user 	= "";
 $pass 	= "";
- 
+
 
 // Development modes: development (all else is production.)
-// Setting this to development shows error notices to everyone, and logs debug messages. 
+// Setting this to development shows error notices to everyone, and logs debug messages.
 if ($_SERVER['SERVER_NAME'] == 'localhost')
 {
 	define("SCRIPT_ENVIRONMENT", 'development');
@@ -36,9 +36,9 @@ if ($_SERVER['SERVER_NAME'] == 'localhost')
 else
 {
 	define("SCRIPT_ENVIRONMENT", 'production');
-} 
- 
-// Set the title to "Filename" instead of "filename.php" 
+}
+
+// Set the title to "Filename" instead of "filename.php"
 $title = explode('.',  basename($_SERVER['SCRIPT_NAME']))[0];
 $title = strtoupper(substr($title, 0, 1)) . substr($title, 1);
 
@@ -46,16 +46,16 @@ $title = strtoupper(substr($title, 0, 1)) . substr($title, 1);
 $web['title'] = $title;
 // The prefix and suffix in the header <title>.
 $web['title_prefix'] = '';
-$web['title_suffix'] = $_SERVER['SERVER_NAME'];	
+$web['title_suffix'] = $_SERVER['SERVER_NAME'];
 // The description in the <meta> tag.
 $web['description'] = '';
 // Display the time it took to execute in the footer.
 $web['footer_exec_time'] = false;
-	
+
 // Last FM: Display your LastFM data on the home page.
-// If enabled, the `user`, `url`, and `api_key` items are required. 
+// If enabled, the `user`, `url`, and `api_key` items are required.
 // Due to the nature of how this works (sending two requests to the LastFM api)
-//	it's going to slow down your website's home page significantly. So use of 
+//	it's going to slow down your website's home page significantly. So use of
 //	caching is recommended. Although ideally you try and disable it entirely.
 $lfm['enabled'] = false;
 $lfm['user'] = 'BuuGhost';
@@ -69,7 +69,7 @@ $lfm['cache'] = true;
 $ga['enabled'] = false;
 // User Account ID
 // Should look like: UA-XXXXXX-X
-$ga['ua_id'] = "UA-XXXXXXXX-1";	
+$ga['ua_id'] = "UA-XXXXXXXX-1";
 // Website name
 $ga['site'] = '';
 
@@ -88,7 +88,7 @@ $navbar = array
 
 	/**
 	 *	Each navbar page is an array item, it should at the very least have a 'name' item, and 'href' is recommended as well.
-	 *	
+	 *
 	 *	'name' : How the menu tab is called and displayed
 	 *	'href' : The location to forward to.
 	 *	'title': The information to display when hovering over it.
@@ -111,9 +111,9 @@ $navbar = array
 	'project' => array
 	(
 		'name' => 'Projects',
-		
+
 		'href' => 'projects',
-		
+
 		'icon' => 'fa-folder-open',
 
 		'pages' => array
@@ -121,18 +121,18 @@ $navbar = array
 			'allproj' => array
 			(
 				'name' => 'All Projects',
-				
+
 				'href' => 'projects',
 				'title' => 'Projects I\'ve made in the past',
 				'icon' => 'fa-sitemap',
-				
+
 				'separator-after' => true,
 			),
 
 			'zarth.us' => array
 			(
 				'name' => 'zarth.us',
-				
+
 				'href' => 'https://github.com/Zarthus/zarth.us/',
 				'icon' => 'fa-heart-o',
 			),
@@ -140,7 +140,7 @@ $navbar = array
 			'twitchbot' => array
 			(
 				'name' => 'Twitch IRC bot',
-				
+
 				'href' => 'https://github.com/Zarthus/twitchbot/',
 				'icon' => 'fa-code-fork',
 			),
@@ -148,7 +148,7 @@ $navbar = array
 			'euler' => array
 			(
 				'name' => 'Project Euler',
-				
+
 				'href' => 'https://github.com/Zarthus/School/',
 				'icon' => 'fa-question',
 			),
@@ -156,38 +156,38 @@ $navbar = array
 			'snippets' => array
 			(
 				'name' => 'Code Snippets',
-				
+
 				'href' => 'https://github.com/Zarthus/Code-Snippets/',
 				'icon' => 'fa-code',
 			),
 		),
 	),
-	
+
 	'aboutme' => array
 	(
 		'name' => 'About Me',
-		
+
 		'href' => 'aboutme',
-		
+
 		'icon' => 'fa-heart',
 	),
-	
+
 	'github' => array
 	(
 		'name' => 'Github',
-		
+
 		'href' => 'https://github.com/zarthus/',
 		'title' => 'This website has it\'s own repository over there too!',
 
 		'icon' => 'fa-github',
 	),
-	
+
 	'contact' => array
 	(
 		'name' => 'Contact',
-		
+
 		'href' => 'contact',
-		
+
 		'icon' => 'fa-user',
 	),
 );

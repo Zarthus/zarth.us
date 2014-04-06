@@ -2,21 +2,21 @@
 if (defined("SITE_INIT")) die("You are trying to include the website initialisation twice.");
 /**
  *	Initialisation
- *	
- *	The website initalisation. This is not the file to configure 
+ *
+ *	The website initalisation. This is not the file to configure
  *	your website, use config.php for that.
- *	
+ *
  *	@package	zarth.us
  *	@author		Zarthus <zarthus@zarth.us>
  *	@link		https://github.com/Zarthus/zarth.us
- *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository
  *	@since		18/03/2014
  */
 
-if (version_compare(PHP_VERSION, '5.4.0', '<')) 
+if (version_compare(PHP_VERSION, '5.4.0', '<'))
 {	// Successfully tested on version 5.5.9 and 5.4.3, might not work below on versions 5.4.3.
 	die("You need at least a PHP Version of 5.4.0 to make use of this, you are running version " . PHP_VERSION);
-} 
+}
 
 // Setting this makes sure you're authorised to access pages you're otherwise not.
 define("SITE_INIT", true);
@@ -35,10 +35,10 @@ define("CSSDIR", INCDIR . '/css');
 define("JSDIR", INCDIR . '/js');
 
 // Config.php needs to exist to continue, if it does exist, all is well.
-// if it doesn't, we look for the default configuration file, and notify the user he needs to copy that.  
-if (!file_exists(PHPDIR . '/config.php')) 
+// if it doesn't, we look for the default configuration file, and notify the user he needs to copy that.
+if (!file_exists(PHPDIR . '/config.php'))
 {
-	if (file_exists(PHPDIR . '/config.default.php')) 
+	if (file_exists(PHPDIR . '/config.default.php'))
 	{
 		die("Could not find config.php, but config.default.php was found, please copy this file and rename it to 'config.php', then configure it to your desires.");
 	}
@@ -65,7 +65,7 @@ else
 }
 
 // Make the database connection
-if ($host == '' || $dbname == '' || $user == '') 
+if ($host == '' || $dbname == '' || $user == '')
 {
 	die("config.php was not configured properly, please ensure the database details are filled in.");
 }
@@ -73,7 +73,7 @@ if ($host == '' || $dbname == '' || $user == '')
 try {
 	$dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 } catch (PDOException $e) {
-	if (SCRIPT_ENVIRONMENT == 'development') 
+	if (SCRIPT_ENVIRONMENT == 'development')
 	{
 		echo $e->getMessage() . "<br />\n";
 	}
@@ -84,8 +84,8 @@ try {
 unset($host, $dbname, $user, $pass);
 
 // Add the visitor to the database.
-// Please ensure you set "USER_PATH" to the file, path, or small description 
-// of where the user is in prior to including init.php to verify the path is 
+// Please ensure you set "USER_PATH" to the file, path, or small description
+// of where the user is in prior to including init.php to verify the path is
 // correctly loaded.
 $visitor = new Visitor($dbh);
 
@@ -109,7 +109,7 @@ if (isset($lfm['enabled']) && $lfm['enabled'])
 
 if (!defined("USER_PATH"))
 {
-	$logger->notice("Suboptimal configuration; USER_PATH is not defined", "Please ensure you define USER_PATH on every accessable page for more descriptive logging"); 
+	$logger->notice("Suboptimal configuration; USER_PATH is not defined", "Please ensure you define USER_PATH on every accessable page for more descriptive logging");
 }
 
-$site_name = getSiteName(); 
+$site_name = getSiteName();

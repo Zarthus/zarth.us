@@ -1,13 +1,13 @@
 /**
  *  Zarthus (zarth.us) theme
- *  
+ *
  *  All the CSS for the entire zarth.us website.
  *  The CSS in this file was inspired by atheme.org, bootstrap.com
- *  
+ *
  *  @package    zarth.us
  *  @author     Zarthus <zarthus@zarth.us>
  *  @link       https://github.com/Zarthus/zarth.us
- *  @license    MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *  @license    MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository
  *  @since      18/03/2014
  */
 
@@ -33,7 +33,7 @@ body {
     text-decoration: inherit;
 }
 
-/* 
+/*
 .site-name-subdomains {}
 .site-name-primary {}
 .site-name-tld {}
@@ -55,27 +55,27 @@ body {
 	border-color: #024;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover, 
+.navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus,
 .navbar-inverse .navbar-nav > li > a:active {
 	background-color: #039;
 }
 
-.navbar .dropdown-menu > li > a, 
-.dropdown-toggle:hover, 
+.navbar .dropdown-menu > li > a,
+.dropdown-toggle:hover,
 .dropdown-toggle:active {
 	background-color: #024;
 }
 
-.navbar-inverse .navbar-nav > .active > a, 
-.navbar-inverse .navbar-nav > .active > a:hover, 
-.navbar-inverse .navbar-nav > .active > a:focus, 
-.navbar .dropdown-menu > li > a:hover, 
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar .dropdown-menu > li > a:hover,
 .navbar .dropdown-menu > .active > a,
 .navbar .dropdown-menu > .active > a:hover,
-.navbar .navbar-nav > .open > a:hover, 
-.navbar .navbar-nav > .open > a:focus, 
-.navbar .navbar-nav > .open > a:active, 
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus,
+.navbar .navbar-nav > .open > a:active,
 .navbar-inverse .navbar-nav > .open > a {
 	background-color: #024;
 }
@@ -83,14 +83,14 @@ body {
 .dropdown-menu > li > a {
 	color: #999;
 }
-		
+
 hr {
     border: 0;
     height: 1px;
-    background-image: -webkit-linear-gradient(left, #eee, #aaa, #eee); 
-    background-image:    -moz-linear-gradient(left, #eee, #aaa, #eee); 
-    background-image:     -ms-linear-gradient(left, #eee, #aaa, #eee); 
-    background-image:      -o-linear-gradient(left, #eee, #aaa, #eee); 
+    background-image: -webkit-linear-gradient(left, #eee, #aaa, #eee);
+    background-image:    -moz-linear-gradient(left, #eee, #aaa, #eee);
+    background-image:     -ms-linear-gradient(left, #eee, #aaa, #eee);
+    background-image:      -o-linear-gradient(left, #eee, #aaa, #eee);
 }
 
 .dropdown-menu > li > a:hover {

@@ -1,14 +1,14 @@
-<?php 
+<?php
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
 /**
  *	Footer
- *	
+ *
  *	The website footer that is included on every page.
- *	
+ *
  *	@package	zarth.us
  *	@author		Zarthus <zarthus@zarth.us>
  *	@link		https://github.com/Zarthus/zarth.us
- *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository
  *	@since		18/03/2014
  */
 
@@ -17,9 +17,9 @@ $year_curr = date('Y');
 $year_string = ($year_made == $year_curr) ? $year_curr : $year_made . ' - ' . $year_curr;
 
 $debug_footer_info = "";
-if (SCRIPT_ENVIRONMENT == 'development') 
+if (SCRIPT_ENVIRONMENT == 'development')
 {
-	$debug_footer_info .= '</div><div class="row"><div class="col-md-4">';	
+	$debug_footer_info .= '</div><div class="row"><div class="col-md-4">';
 	$debug_footer_info .= "Execution time: " . round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 5) . " ms";
 	$debug_footer_info .= '</div><div class="col-md-offset-4 col-md-4">';
 	$debug_footer_info .= "development mode";
@@ -27,7 +27,7 @@ if (SCRIPT_ENVIRONMENT == 'development')
 }
 else if (isset($web['footer_exec_time']) && $web['footer_exec_time'])
 {
-	$debug_footer_info .= '</div><div class="row"><div class="col-md-offset-4 col-md-4">';	
+	$debug_footer_info .= '</div><div class="row"><div class="col-md-offset-4 col-md-4">';
 	$debug_footer_info .= "Execution time: " . round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 5) . " ms";
 	$debug_footer_info .= '</div></div>' . "\n";
 }

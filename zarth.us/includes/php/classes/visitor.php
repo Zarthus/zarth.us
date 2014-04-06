@@ -2,17 +2,17 @@
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
 /**
  *	Visitor
- *	
+ *
  *	The class that handles everything that occurs to new visitors.
- *	
+ *
  *	@package	zarth.us
  *	@author		Zarthus <zarthus@zarth.us>
  *	@link		https://github.com/Zarthus/zarth.us
- *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository
  *	@since		18/03/2014
  */
 
-class Visitor 
+class Visitor
 {
 	/**
 	 *	@string The IP of the visitor.
@@ -28,27 +28,27 @@ class Visitor
 	 *	@string The query string of the user.
 	 */
 	public $user_querystring;
-	
+
 	/**
 	 *	@string The page the user is visiting.
-	 */	
+	 */
 	public $user_path;
 
 	/**
 	 *	@integer The ID that was added to the database.
-	 */	
+	 */
 	public $user_insert_id;
 
 	/**
 	 *	@PDO Object database handle
 	 */
 	private $dbh;
-	
+
 	/**
 	 *	@string Table name
 	 */
 	private $visitor_table;
-		
+
 	/**
 	 *	Constructor
 	 *
@@ -61,28 +61,28 @@ class Visitor
 	 *	@throws Exception if $dbh is not an instance of PDO.
 	 *	@access public
 	 */
-	public function __construct($dbh, $insert_immediately = true, $create_table = true, $table_name = "visitor")  
+	public function __construct($dbh, $insert_immediately = true, $create_table = true, $table_name = "visitor")
 	{
 		if (!($dbh instanceof PDO))
 		{
 			throw new Exception("\$dbh is not instance of PDO");
 		}
-		
+
 		$this->dbh = $dbh;
-		
+
 		$this->user_ip 				= $_SERVER['REMOTE_ADDR'];
 		$this->user_querystring 	= !empty($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : "No querystring";
 		$this->user_lang 			= !empty($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : "Unknown";
 		$this->user_useragent 		= !empty($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "No user agent";
 		$this->setUserPath();
-		
+
 		$this->visitor_table = Utilities::sanitizeTableName($table_name);
 		if ($create_table) $this->createTables();
 		if ($insert_immediately) $this->insertUserData();
 	}
 
 	/**
-	 *	Get User Path 
+	 *	Get User Path
 	 *
 	 *	Return the path the user is coming from.
 	 *
@@ -93,9 +93,9 @@ class Visitor
 	{
 		return $this->user_path;
 	}
-	
+
 	/**
-	 *	Get User Inserted ID 
+	 *	Get User Inserted ID
 	 *
 	 *	Return the ID the user has when inserting the data in the database.
 	 *
@@ -104,12 +104,12 @@ class Visitor
 	 */
 	public function getUserInsertID()
 	{
-		if ($this->user_insert_id === null) 
+		if ($this->user_insert_id === null)
 			$this->user_insert_id = 0;
-		
+
 		return $this->user_insert_id;
 	}
-	
+
 	/**
 	 *	Insert User Data
 	 *
@@ -120,9 +120,9 @@ class Visitor
 	public function insertUserData()
 	{
 		$unique = $this->getUserVisits($this->user_ip);
-		
+
 		// The IP is not an IP.
-		if ($unique === false) 
+		if ($unique === false)
 		{
 			$unique = -1;
 			try {
@@ -130,16 +130,16 @@ class Visitor
 			} catch (Exception $e) {
 				# TODO: Maybe make a log queue to process? This would only occur on startup where the logger is not yet initialised, and $insert_immediately is set.
 				# Let's just silently drop the error for now, unless we're in the developers environment.
-				if (SCRIPT_ENVIRONMENT == 'development') 
+				if (SCRIPT_ENVIRONMENT == 'development')
 				{
 					echo $e->getMessage();
 				}
 			}
 		}
-		
+
 		// Insert the data into the database
 		$stmt = $this->dbh->prepare("
-			INSERT INTO `{$this->visitor_table}` 
+			INSERT INTO `{$this->visitor_table}`
 			(`unique_visitor`, `user_ip`, `user_language`, `user_useragent`, `user_path`, `user_query_string`)
 			VALUES
 			(:unique, :ip, :ulang, :uagent, :upath, :uquerystring)
@@ -151,7 +151,7 @@ class Visitor
 		$stmt->bindParam(':upath', $this->user_path, PDO::PARAM_STR, 128);
 		$stmt->bindParam(':uquerystring', $this->user_querystring, PDO::PARAM_STR, 128);
 		$stmt->execute();
-		
+
 		// Fetch the last inserted id from the database.
 		$stmt = $this->dbh->prepare("SELECT id FROM `{$this->visitor_table}` WHERE `unique_visitor` = :unique AND `user_ip` = :ip ORDER BY `id` DESC LIMIT 1 ");
 		$stmt->bindParam(':unique', $unique, PDO::PARAM_INT, 12);
@@ -160,7 +160,7 @@ class Visitor
 		$result = $stmt->fetch();
 		$this->user_insert_id = $result['id'];
 	}
-	
+
 	/**
 	 *	Get User Visits
 	 *
@@ -176,18 +176,18 @@ class Visitor
 	public function getUserVisits($ip = "")
 	{
 		if ($ip == "") $ip = $_SERVER['REMOTE_ADDR'];
-		
+
 		if (!filter_var($ip, FILTER_VALIDATE_IP))
 			return FALSE;
-		
+
 		$stmt = $this->dbh->prepare("SELECT count(user_ip) AS ip FROM {$this->visitor_table} WHERE user_ip = :ip");
 		$stmt->bindParam(':ip', $ip, PDO::PARAM_STR, 40);
 		$stmt->execute();
 		$result = $stmt->fetch();
-		
+
 		return $result['ip'];
 	}
-	 
+
 	/**
 	 *	Set User Path
 	 *
@@ -198,17 +198,17 @@ class Visitor
 	 */
 	private function setUserPath()
 	{
-		// The script itself can give a far more accurate naming to the 
+		// The script itself can give a far more accurate naming to the
 		// places the user visits than $_SERVER ever can.
-		if (defined("USER_PATH")) $this->user_path = USER_PATH;		
-		
+		if (defined("USER_PATH")) $this->user_path = USER_PATH;
+
 		else if (isset($_SERVER['SCRIPT_NAME'])) $this->user_path = $_SERVER['SCRIPT_NAME'];
 		else if (isset($_SERVER['SCRIPT_FILENAME'])) $this->user_path = $_SERVER['SCRIPT_FILENAME'];
 		else if (isset($_SERVER['PHP_SELF'])) $this->user_path = $_SERVER['PHP_SELF'];
 
 		else $this->user_path = "Unknown";
 	}
-	 
+
 	/**
 	 *	Create Tables
 	 *

@@ -17,7 +17,7 @@ class Utilities
 		if (preg_match("/^[a-z\_\-\$]{0,30}$/i", $table))
 			return $table;
 		else
-			return preg_replace('/[^ a-z\_\-\$]+/i', '', $table);		
-	}	
-	 
+			return preg_replace('/[^ a-z\_\-\$]+/i', '', $table);
+	}
+
 }

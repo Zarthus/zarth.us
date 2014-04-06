@@ -2,13 +2,13 @@
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
 /**
  *	Navigation Bar
- *	
- *	Include this file to parse the navigation bar. 
+ *
+ *	Include this file to parse the navigation bar.
  *
  *	@package	zarth.us
  *	@author		Zarthus <zarthus@zarth.us>
  *	@link		https://github.com/Zarthus/zarth.us
- *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository
  *	@since		20/03/2014
  */
 
@@ -16,45 +16,45 @@ function getDropdownHTML($nav, $fname)
 {
 	$items = '';
 	$ddname = $nav['name'];
-	
+
 	foreach ($nav['pages'] as $page)
 	{
-		if (isset($page['show']) && !$page['show']) 
+		if (isset($page['show']) && !$page['show'])
 			continue;
 
-		$title = isset($page['title']) ? ' title="' . $page['title'] . '"' : '';	
-		
+		$title = isset($page['title']) ? ' title="' . $page['title'] . '"' : '';
+
 		$attr = " ";
-		
-		$icon = ''; 
-	
-		if (!empty($page['icon'])) 
+
+		$icon = '';
+
+		if (!empty($page['icon']))
 			$icon .= '<span class="fa fa-fw ' . $page['icon'] . '"></span> ';
-		
+
 		$attr .= isset($page['href']) ? 'href="' . $page['href'] . '" ' : 'href="#" ';
 		$attr .= isset($page['title']) ? 'title="' . $page['title'] . '" ' : '';
 		$attr .= isset($page['class']) ? 'class="' . $page['class'] . '"' : '';
-		
+
 		$attr = rtrim($attr);
 
 		$name = isset($page['name']) ? $page['name'] : "<!--ERROR: NavName not found-->";
-			
+
 		if (isset($page['separator-before'])) $items .= "<li class=\"divider\"></li>\n";
 		$items .= "<li><a$attr$title>$icon$name</a></li>\n";
 		if (isset($page['separator-after'])) $items .= "<li class=\"divider\"></li>\n";
 	}
-	
-	# TODO: Implement href,class for the main menu item.
-	$icon = ''; 
 
-	if (!empty($nav['icon'])) 
+	# TODO: Implement href,class for the main menu item.
+	$icon = '';
+
+	if (!empty($nav['icon']))
 		$icon .= '<span class="fa fa-fw ' . $nav['icon'] . '"></span> ';
 
 	$attr = "";
 
 	$attr .= isset($nav['href']) ? 'href="' . $nav['href'] . '" ' : 'href="#" ';
 	$attr .= isset($nav['title']) ? 'title="' . $nav['title'] . '" ' : '';
-	
+
 	$attr = rtrim($attr);
 
 	$html = <<<HTML
@@ -72,22 +72,22 @@ HTML;
 function getNavigationHTML($nav, $fname)
 {
 	$active = '';
-	
-	if (isset($nav['href'])) 
+
+	if (isset($nav['href']))
 	{
 		$active = $nav['href'] == $fname ? ' class="active"' : "";
-	}	
-	
-	$icon = ''; 
+	}
 
-	if (!empty($nav['icon'])) 
+	$icon = '';
+
+	if (!empty($nav['icon']))
 		$icon .= '<span class="fa fa-fw ' . $nav['icon'] . '"></span> ';
 
 	$attr = "";
 
 	$attr .= isset($nav['href']) ? 'href="' . $nav['href'] . '" ' : 'href="#" ';
 	$attr .= isset($nav['title']) ? 'title="' . $nav['title'] . '" ' : '';
-	
+
 	$attr = rtrim($attr);
 
 	$navName = isset($nav['name']) ? $nav['name'] : "<!--ERROR: NavName not found-->";
@@ -104,11 +104,11 @@ foreach ($navbar as $nav)
 {
 	if (isset($nav['show']) && !$nav['show'])
 		continue;
-		
-	if (isset($nav['pages']) && is_array($nav['pages'])) 
+
+	if (isset($nav['pages']) && is_array($nav['pages']))
 	{
 		$navigation .= getDropdownHTML($nav, $fname);
-	} 
+	}
 	else
 	{
 		$navigation .= getNavigationHTML($nav, $fname);
