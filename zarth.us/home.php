@@ -18,7 +18,7 @@ require_once('includes/php/init.php');
 <head>	
 	<?php 
 		$web['description'] = 'Welcome to ' . $site_name . ', there is no place like home.';
-		$web['theme'] = 'zarthus-theme.css';
+		$web['theme'] = 'zarthus-theme.min.css';
 	
 		include(HTMLDIR . '/head.php'); 
 	?>

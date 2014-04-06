@@ -38,7 +38,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>	
 	<?php 
 		$web['description'] = 'A wide list of projects that I have made'; 
-		$web['theme'] = 'zarthus-theme.css';
+		$web['theme'] = 'zarthus-theme.min.css';
 	
 		include(HTMLDIR . '/head.php'); 
 	?>

@@ -19,7 +19,7 @@ require_once('includes/php/init.php');
 <head>	
 	<?php 
 		$web['description'] = 'All about Zarthus'; 
-		$web['theme'] = 'zarthus-theme.css';
+		$web['theme'] = 'zarthus-theme.min.css';
 		$web['title'] = 'About Me';
 	
 		include(HTMLDIR . '/head.php'); 
