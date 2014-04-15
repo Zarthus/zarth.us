@@ -29,48 +29,45 @@ require_once('includes/php/init.php');
 	<?php include(HTMLDIR . '/navbar.php'); ?>
 
 	<div class="container content">
-			<div class="page-header jumbotron">
-				<h1><a class="no-link-markup" href="<?php echo $_SERVER['SERVER_NAME'] ?>">Welcome to <?php echo getSiteName(true) ?></a></h1>
-				<hr>
-			</div>
-			<p>
-				Quite honestly, I have no idea what to put here, so check out some of my projects and things I've spent time on!
-			</p>
-			<br><br>
-
-			<?php include(HTMLDIR . '/lastfm.php'); ?>
+		<div class="page-header jumbotron">
+			<h1><a class="no-link-markup" href="<?php echo $_SERVER['SERVER_NAME'] ?>">Welcome to <?php echo getSiteName(true) ?></a></h1>
 			<hr>
-			<br>
+		</div>
+		<p>
+			Quite honestly, I have no idea what to put here, so check out some of my projects and things I've spent time on!
+		</p>
+		<br><br>
 
-			<div class="row">
-				<div class="col-md-4 marketing-text">
-					<h2>
-						<a href="projects" class="blog noline"><span class="fa fa-fw fa-folder-open"></span> Projects</a>
-					</h2>
-					<p>
-						I've done a few things over the years, like making <a href="http://<?php echo $site_name ?>">this website</a>,
-						developing a few <a>IRC Bots</a>,
-						and solve problems on <a href="http://projecteuler.net">Project Euler</a>.
-					</p>
-				</div>
+		<?php include(HTMLDIR . '/lastfm.php'); ?>
+		<hr>
+		<br>
 
-				<div class="col-md-4 marketing-text">
-					<h2>
-						<a href="aboutme"><span class="fa fa-fw fa-heart"></span> About Me</a>
-					</h2>
-					<p>It's a website about me, it'd be weird to not have an about me page!</p>
-				</div>
+		<div class="row">
+			<div class="col-md-4 marketing-text">
+				<h2>
+					<a href="projects" class="blog noline"><span class="fa fa-fw fa-folder-open"></span> Projects</a>
+				</h2>
+				<p>
+					I've done a few things over the years, like making <a href="http://<?php echo $site_name ?>">this website</a>,
+					developing a few <a>IRC Bots</a>,
+					and solve problems on <a href="http://projecteuler.net">Project Euler</a>.
+				</p>
+			</div>
 
-				<div class="col-md-4">
-					<h2>
-						<a href="https://github.com/zarthus/"><span class="fa fa-fw fa-github"></span> Github</a>
-					</h2>
-					<p>Github is where all the magic happens.</p>
-				</div>
+			<div class="col-md-4 marketing-text">
+				<h2>
+					<a href="aboutme"><span class="fa fa-fw fa-heart"></span> About Me</a>
+				</h2>
+				<p>It's a website about me, it'd be weird to not have an about me page!</p>
+			</div>
+
+			<div class="col-md-4">
+				<h2>
+					<a href="https://github.com/zarthus/"><span class="fa fa-fw fa-github"></span> Github</a>
+				</h2>
+				<p>Github is where all the magic happens.</p>
 			</div>
 		</div>
-
-
 		<hr>
 		<footer>
 			<?php include_once(HTMLDIR . '/footer.php') ?>
