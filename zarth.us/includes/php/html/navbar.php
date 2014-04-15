@@ -22,8 +22,6 @@ function getDropdownHTML($nav, $fname)
 		if (isset($page['show']) && !$page['show'])
 			continue;
 
-		$title = isset($page['title']) ? ' title="' . $page['title'] . '"' : '';
-
 		$attr = " ";
 
 		$icon = '';
@@ -40,7 +38,7 @@ function getDropdownHTML($nav, $fname)
 		$name = isset($page['name']) ? $page['name'] : "<!--ERROR: NavName not found-->";
 
 		if (isset($page['separator-before'])) $items .= "<li class=\"divider\"></li>\n";
-		$items .= "<li><a$attr$title>$icon$name</a></li>\n";
+		$items .= "<li><a$attr>$icon$name</a></li>\n";
 		if (isset($page['separator-after'])) $items .= "<li class=\"divider\"></li>\n";
 	}
 
