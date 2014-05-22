@@ -149,7 +149,7 @@ require_once('includes/php/init.php');
 								<td>Basic</td>
 								<td>2014 - current</td>
 							</tr>
-						</thead>
+						</tbody>
 					</table>
 				</div>
 				<p>
@@ -197,7 +197,7 @@ require_once('includes/php/init.php');
 
 		<div class="row">
 			<div class="col-md-12">
-				<h3><a href="projects">Why don't you check out some of the projects I have made?</a><h3>
+				<h3><a href="projects">Why don't you check out some of the projects I have made?</a></h3>
 			</div>
 		</div>
 
