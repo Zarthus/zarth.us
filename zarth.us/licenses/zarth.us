@@ -20,6 +20,50 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
----
+---------
 
-http://opensource.org/licenses/MIT
+This project makes use of jQuery, which is licensed under MIT.
+
+https://jquery.com
+https://github.com/jquery/jquery
+https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt
+
+---------
+
+This project makes use of Bootstrap, which is licensed under MIT.
+
+http://getbootstrap.com/
+https://github.com/twbs/bootstrap
+https://github.com/twbs/bootstrap/blob/master/LICENSE
+
+---------
+
+This project makes use of Font Awesome, which is licensed under MIT.
+
+http://fortawesome.github.io/Font-Awesome/
+https://github.com/FortAwesome/Font-Awesome/
+https://github.com/FortAwesome/Font-Awesome/#license
+http://fontawesome.io/license/
+
+---------
+
+This project makes use of h5ai, which is licensed under MIT.
+
+http://larsjung.de/h5ai/
+https://github.com/lrsjng/h5ai/
+https://github.com/lrsjng/h5ai/blob/develop/LICENSE.md
+
+---------
+
+This project makes use of jquery-github, which is licensed under MIT.
+
+MIT License © Zeno Rocha
+https://github.com/zenorocha/jquery-github
+http://zenorocha.mit-license.org/
+
+
+--------
+
+This project has taken a picture out of http://atheme.org/'s book for design, although it follows the general bootstrap template, the design was inspired by the website.
+https://github.com/atheme/atheme.org
+
