@@ -47,7 +47,7 @@ require_once('includes/php/init.php');
 					I enjoy programming in various languages, as of right now I am most proficient with PHP, I know a little bit of C# and Java, and am also mildly familiar with the C language.
 					Currently I'm attempting to learn the C++ language. Recently I have also become rather skilled with Regular Expressions.
 				</p><p>
-					In relation to music, I enjoy all sorts of music, but most of the genres I listen to are rock, metal or 80s/70s music.
+					In relation to music, I enjoy all sorts, but most of the genres I listen to are rock, metal, 80s, and 70s music.
 					You can check out what I've recently listened to by checking my last fm account <a href="http://last.fm/user/BuuGhost">BuuGhost</a>, or by checking my <a href="http://open.spotify.com/user/1155290200/playlist/4QXARDBPRoe99fObf6e6db">spotify playlist</a>
 				</p><p>
 					As for languages that don't relate to programming, I natively speak Dutch, and have learnt a great portion of English over the years, starting at the age of 11.
