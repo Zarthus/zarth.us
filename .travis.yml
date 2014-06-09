@@ -1,0 +1,23 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - hhvm
+  
+matrix:
+  allow_failures:
+    - php: hhvm
+    - php: 5.6
+  
+env:
+  - DB=mysql
+
+script:
+  travis/make_db.sh
+  travis/test_site.sh 
+  
+notifications:
+  email: true
+  irc: "irc.esper.net#zarthus"
