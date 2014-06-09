@@ -1,8 +1,7 @@
-zarth.us
+zarth.us [![Build Status](https://travis-ci.org/Zarthus/zarth.us.svg?branch=master)](https://travis-ci.org/Zarthus/zarth.us)  
 ==========
 
 ## What is this?
-[![Build Status](https://travis-ci.org/Zarthus/zarth.us.svg?branch=master)](https://travis-ci.org/Zarthus/zarth.us)  
 This is zarth.us, a website I made by and for myself.  
 I wanted to focus on documenting my code properly, and generally try out all kinds of open source utilities more popular projects have.
 

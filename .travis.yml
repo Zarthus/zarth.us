@@ -15,13 +15,13 @@ env:
   - DB=mysql
 
 before_script:
-#  - "sudo apt-get update && sudo apt-get upgrade"
-  - "chmod +x travis/make_db.sh"
-  - "chmod +x travis/test_site.sh"  
+  - "sudo apt-get update && sudo apt-get upgrade"
+  - "chmod +x travis/makedb.sh"
+  - "chmod +x travis/testsite.sh"  
   
 script:
-  travis/make_db.sh
-  travis/test_site.sh 
+  - "./travis/makedb.sh"
+  - "./travis/testsite.sh"
   
 notifications:
   email: true
