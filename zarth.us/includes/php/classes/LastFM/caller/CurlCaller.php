@@ -37,6 +37,7 @@ final class CurlCaller extends Caller {
 
 		curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($this->curl, CURLOPT_USERAGENT, "PHP last.fm API (PHP/" . phpversion() . ")");
+		curl_setopt($this->curl, CURLOPT_TIMEOUT, 2);
 		curl_setopt($this->curl, CURLOPT_HEADERFUNCTION, array(&$this, 'header'));
 	}
 

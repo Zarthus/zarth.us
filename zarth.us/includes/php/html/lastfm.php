@@ -47,7 +47,7 @@ if (isset($lfm['enabled']) && $lfm['enabled'])
 					$xml[4]->getName() . ' (' . $xml[4]->getArtist() . ')',
 				));
 
-			} catch (Error $e) {
+			} catch (Exception $e) {
 				echo lastfm_generate_html_error("Recent Tracks");
 				if (SCRIPT_ENVIRONMENT == 'development') echo '<p>' . $e->getMessage() . '</p>';
 			}
@@ -63,7 +63,7 @@ if (isset($lfm['enabled']) && $lfm['enabled'])
 					$xml[4]->getName() . ' (' . number_format($xml[4]->getPlayCount()) . ' plays)',
 				));
 
-			} catch (Error $e) {
+			} catch (Exception $e) {
 				echo lastfm_generate_html_error("Top Artists");
 				if (SCRIPT_ENVIRONMENT == 'development') echo '<p>' . $e->getMessage() . '</p>';
 			}
