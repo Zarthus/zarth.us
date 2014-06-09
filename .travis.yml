@@ -15,9 +15,9 @@ env:
   - DB=mysql
 
 before_script:
-#  - "sudo apt-get update && sudo apt-get upgrade"
-  - "chmod +x travis/makedb.sh"
-  - "chmod +x travis/testsite.sh"  
+#  - "sudo apt-get update | yes && sudo apt-get upgrade | yes"
+  - "chmod +x ./travis/makedb.sh"
+  - "chmod +x ./travis/testsite.sh"  
   
 script:
   - "./travis/makedb.sh"

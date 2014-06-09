@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DATABASE_NAME=zarth.us
+DATABASE_NAME=zarthus
 
 mysql -e 'CREATE DATABASE IF NOT EXISTS `$DATABASE_NAME`;'
 mysql -D "$DATABASE_NAME" < ./database/logs.sql

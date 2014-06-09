@@ -22,7 +22,7 @@ if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot 
 
 // Database information
 $host 	= "localhost";
-$dbname = "zarth.us";
+$dbname = "zarthus";
 $user 	= "root";
 $pass 	= "";
 
