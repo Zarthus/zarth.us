@@ -18,6 +18,7 @@ before_script:
 #  - "sudo apt-get update | yes && sudo apt-get upgrade | yes"
   - "chmod +x ./travis/makedb.sh"
   - "chmod +x ./travis/testsite.sh"  
+  - "mysql -e 'CREATE DATABASE zarthus;'"
   
 script:
   - "./travis/makedb.sh"
