@@ -29,24 +29,16 @@ $pass 	= "";
 
 // Development modes: development (all else is production.)
 // Setting this to development shows error notices to everyone, and logs debug messages.
-if ($_SERVER['SERVER_NAME'] == 'localhost')
-{
-	define("SCRIPT_ENVIRONMENT", 'development');
-}
-else
-{
-	define("SCRIPT_ENVIRONMENT", 'production');
-}
+define("SCRIPT_ENVIRONMENT", 'production');
 
 // Set the title to "Filename" instead of "filename.php"
-$title = explode('.',  basename($_SERVER['SCRIPT_NAME']))[0];
-$title = strtoupper(substr($title, 0, 1)) . substr($title, 1);
+$title = "TravisCI"
 
 // This is the title displayed on every page.
 $web['title'] = $title;
 // The prefix and suffix in the header <title>.
 $web['title_prefix'] = '';
-$web['title_suffix'] = $_SERVER['SERVER_NAME'];
+$web['title_suffix'] = '';
 // The description in the <meta> tag.
 $web['description'] = '';
 // Display the time it took to execute in the footer.
@@ -190,6 +182,15 @@ $navbar = array
 
 		'icon' => 'fa-user',
 	),
+);
+
+// Psuedo $_SERVER
+$_SERVER = array
+(
+	'SCRIPT_NAME' => 'TravisCI',
+	'REMOTE_ADDR' => '127.0.0.1',
+	'REQUEST_URI' => '',
+	'SERVER_NAME' => 'TravisCI',
 );
 
 # EOF
