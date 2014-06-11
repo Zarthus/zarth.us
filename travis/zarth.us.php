@@ -1,5 +1,5 @@
 <?php
-$scriptstart = microtime();
+$scriptstart = microtime(true);
 /**
  *	Travis Test File
  *
@@ -81,7 +81,11 @@ require_once('includes/php/init.php');
 </html>
 
 <?php 
-	$scriptend = microtime();
+	// Because die(" .. string .. ") is actually die(0), we're making a new 
+	// file. We check if this file exists later, if it doesn't, the build
+	// will error and assume it exited incorrectly. That said, the statistics
+	// are nice too.
+	$scriptend = microtime(true);
 	$touchfile = "../travis/data.txt";
 	touch($touchfile);
 	file_put_contents($touchfile, memory_get_usage() . ' | ' . memory_get_peak_usage() . "\r\n", FILE_APPEND);
