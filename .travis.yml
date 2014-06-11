@@ -17,12 +17,17 @@ env:
 before_script:
 #  - "sudo apt-get update | yes && sudo apt-get upgrade | yes"
   - "chmod +x ./travis/makedb.sh"
-  - "chmod +x ./travis/testsite.sh"  
+  - "mysql -e 'CREATE DATABASE zarthus;'"
   
 script:
   - "./travis/makedb.sh"
-  - "./travis/testsite.sh"
-  
+  - "mv travis/config.default.php zarth.us/includes/php/config.php"
+  - "mv travis/zarth.us.php zarth.us/zarth.us.php"
+  - "chmod +x zarth.us/zarth.us.php"
+  - "cd zarth.us"
+  - "php zarth.us.php"
+  - "cat ../travis/data.txt"
+
 notifications:
   email: true
   irc: "irc.esper.net#zarthus"
