@@ -32,7 +32,7 @@ $pass 	= "";
 define("SCRIPT_ENVIRONMENT", 'production');
 
 // Set the title to "Filename" instead of "filename.php"
-$title = "TravisCI"
+$title = "TravisCI";
 
 // This is the title displayed on every page.
 $web['title'] = $title;
