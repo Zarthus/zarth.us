@@ -1,4 +1,5 @@
 <?php
+$scriptstart = microtime();
 /**
  *	Travis Test File
  *
@@ -78,3 +79,11 @@ require_once('includes/php/init.php');
 	<?php include(HTMLDIR . '/body.php'); ?>
 </body>
 </html>
+
+<?php 
+	$scriptend = microtime();
+	$touchfile = "../travis/data.txt";
+	touch($touchfile);
+	file_put_contents($touchfile, memory_get_usage() . ' | ' . memory_get_peak_usage() . "\r\n", FILE_APPEND);
+	file_put_contents($touchfile, "Execution time (ms): " . ($scriptend - $scriptstart), FILE_APPEND);
+?>
