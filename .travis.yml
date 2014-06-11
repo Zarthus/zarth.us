@@ -22,8 +22,11 @@ before_script:
   
 script:
   - "./travis/makedb.sh"
-  - "./travis/testsite.sh"
-  
+  - "mv travis/config.default.php zarth.us/includes/php/config.php"
+  - "mv travis/zarth.us.php zarth.us/zarth.us.php"
+  - "chmod +x zarth.us/zarth.us.php"
+  - "php zarth.us/zarth.us.php"
+
 notifications:
   email: true
   irc: "irc.esper.net#zarthus"
