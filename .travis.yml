@@ -24,8 +24,9 @@ script:
   - "mv travis/config.default.php zarth.us/includes/php/config.php"
   - "mv travis/zarth.us.php zarth.us/zarth.us.php"
   - "chmod +x zarth.us/zarth.us.php"
-  - "php zarth.us/zarth.us.php"
-  - "cat travis/data.txt"
+  - "cd zarth.us"
+  - "php zarth.us.php"
+  - "cat ../travis/data.txt"
 
 notifications:
   email: true
