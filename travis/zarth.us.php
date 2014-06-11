@@ -88,6 +88,6 @@ require_once('includes/php/init.php');
 	$scriptend = microtime(true);
 	$touchfile = "../travis/data.txt";
 	touch($touchfile);
-	file_put_contents($touchfile, memory_get_usage() . ' | ' . memory_get_peak_usage() . "\r\n", FILE_APPEND);
+	file_put_contents($touchfile, 'Current Memory: ' . memory_get_usage() . ' | Memory peak: ' . memory_get_peak_usage() . "\r\n", FILE_APPEND);
 	file_put_contents($touchfile, "Execution time (ms): " . ($scriptend - $scriptstart), FILE_APPEND);
 ?>
