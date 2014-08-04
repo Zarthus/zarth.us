@@ -2,13 +2,13 @@
 if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot open this file directly");
 /**
  *	Functions
- *	
+ *
  *	A wide array of website functions
- *	
+ *
  *	@package	zarth.us
  *	@author		Zarthus <zarthus@zarth.us>
  *	@link		https://github.com/Zarthus/zarth.us
- *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository 
+ *	@license	MIT - View http://zarth.us/licenses/zarth.us or the LICENSE.md file in the github repository
  *	@since		18/03/2014
  */
 
@@ -22,24 +22,24 @@ if (!defined("SITE_INIT")) die("Website is not initialised properly, you cannot 
 function getSiteName($markup = false)
 {
 	if (!$markup) return $_SERVER['SERVER_NAME'];
-		
+
 	// Split up the domain name (if there is anything to split up, (localhost doesn't)) into array(0 => 'zarth', 1 => 'us')
 	$sName = explode('.', $_SERVER['SERVER_NAME']);
-	
+
 	$count = count($sName);
 	if ($count == 2)
 	{	// If the count is 2, we're not on any subdomain
-		return '<span class="site-name-primary">' . $sName[0] . '</span>.<span class="site-name-tld">' . $sName[1] . '</span>'; 
+		return '<span class="site-name-primary">' . $sName[0] . '</span>.<span class="site-name-tld">' . $sName[1] . '</span>';
 	}
-	else if ($count > 2) 
+	else if ($count > 2)
 	{	// We're on a subdomain
 		return '<span class="site-name-subdomains">' . implode('.', array_slice($sName, 0, $count - 2)) . '</span>' .
-			'<span class="site-name-primary">' . $sName[$count - 2] . '</span>.' . 
-			'<span class="site-name-tld">' . $sName[$count - 1] . '</span>';		
+			'<span class="site-name-primary">' . $sName[$count - 2] . '</span>.' .
+			'<span class="site-name-tld">' . $sName[$count - 1] . '</span>';
 	}
-	else 
+	else
 	{	// If this is the case, we're probably on localhost.
-		return '<span class="site-name-primary">' . $sName[0] . '</span><span class="site-name-tld">.tld</span>'; 		
+		return '<span class="site-name-primary">' . $sName[0] . '</span><span class="site-name-tld">.tld</span>';
 	}
 }
 
@@ -62,23 +62,23 @@ function getDomainName($markup = false)
 		else
 			return $sName[0];
 	}
-	
-	
+
+
 	if ($count == 2)
 	{	// If the count is 2, we're not on any subdomain
-		return '<span class="site-name"><span class="site-name-primary">' . $sName[0] . '</span></span>'; 
+		return '<span class="site-name"><span class="site-name-primary">' . $sName[0] . '</span></span>';
 	}
-	else if ($count > 2) 
+	else if ($count > 2)
 	{	// We're on a subdomain
-		return '<span class="site-name"><span class="site-name-primary">' . $sName[$count - 2] . '</span></span>'; 
+		return '<span class="site-name"><span class="site-name-primary">' . $sName[$count - 2] . '</span></span>';
 	}
-	else 
+	else
 	{	// If this is the case, we're probably on localhost.
-		return '<span class="site-name"><span class="site-name-primary">' . $sName[0] . '</span></span>'; 		
+		return '<span class="site-name"><span class="site-name-primary">' . $sName[0] . '</span></span>';
 	}
 }
 
-/** 
+/**
  *	parseGoogleAnalytics
  *
  *	Return the Google Analytic code, used in parseDefaultBody(), this can be
@@ -86,7 +86,7 @@ function getDomainName($markup = false)
  *
  *	@param array $ga - The google analytics array defined in config.php
  *	@return String google analytics code or empty string
- */ 
+ */
 function getGoogleAnalytics($ga)
 {
 	// Cut off early if we do not use google analytics.
@@ -94,14 +94,14 @@ function getGoogleAnalytics($ga)
 
 	if (!isset($ga['ua_id']) || !isset($ga['site']))
 	{
-		Logger::getInstance()->error("Google Analytics was enabled but incorrectly configured. ua_id: " . (isset($ga['ua_id']) ? "set" : "not set") . " | site: " . (isset($ga['site']) ? "set" : "not set"), 
+		Logger::getInstance()->error("Google Analytics was enabled but incorrectly configured. ua_id: " . (isset($ga['ua_id']) ? "set" : "not set") . " | site: " . (isset($ga['site']) ? "set" : "not set"),
 			__FUNCTION__ . ": You will have to properly configure google analytics (\$ga) in /includes/php/config.php");
 	}
 	else
 	{
-	
+
 		$js = <<<JS
-	
+
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -116,7 +116,7 @@ JS;
 
 		return $js;
 	}
-	
+
 	return "";
 }
 
@@ -124,9 +124,9 @@ function lastfm_init(&$lfm)
 {
 	$lastfm_data = array();
 	if (!$lfm['enabled']) return;
-	
+
 	try {
-		$xml = User::getRecentTracks($lfm['user']); 
+		$xml = User::getRecentTracks($lfm['user']);
 
 		$lastfm_data['recent_tracks'] = lastfm_generate_html("Recent Tracks", array(
 			$xml[0]->getName() . ' (' . $xml[0]->getArtist() . ')',
@@ -143,7 +143,7 @@ function lastfm_init(&$lfm)
 
 
 	try {
-		$xml = User::getTopArtists($lfm['user']); 
+		$xml = User::getTopArtists($lfm['user']);
 
 		$lastfm_data['top_artists'] = lastfm_generate_html("Top Artists", array(
 			$xml[0]->getName() . ' (' . number_format($xml[0]->getPlayCount()) . ' plays)',
@@ -157,32 +157,32 @@ function lastfm_init(&$lfm)
 		$lastfm_data['top_artists'] = lastfm_generate_html_error("Top Artists");
 		if (SCRIPT_ENVIRONMENT == 'development') echo '<p>' . $e->getMessage() . '</p>';
 	}
-	
+
 	$lfm['initialised'] = true;
 	return $lastfm_data;
 }
 
-function lastfm_generate_html($header, array $data) 
+function lastfm_generate_html($header, array $data)
 {
 	$lfmData = '';
 	foreach($data as $row) {
 		$lfmData .= "$row<br />\n";
 	}
-	
+
 	$last_fm = <<<LASTFM
 	<div class="col-md-6 last-fm-entry">
 		<h2>{$header}</h2>
 		<p class="last-fm-data">
 			{$lfmData}
 		</p>
-	</div>	
+	</div>
 LASTFM;
 
 	return $last_fm;
 }
 
 
-function lastfm_generate_html_error($header) 
+function lastfm_generate_html_error($header)
 {
 	$last_fm = <<<LASTFM
 	<div class="col-md-6 last-fm-entry">
@@ -190,7 +190,7 @@ function lastfm_generate_html_error($header)
 		<p class="last-fm-data">
 			Failed to get data from last.fm
 		</p>
-	</div>	
+	</div>
 LASTFM;
 
 	return $last_fm;

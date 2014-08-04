@@ -21,7 +21,7 @@ require_once('includes/php/init.php');
 		$web['description'] = 'All about Zarthus';
 		$web['theme'] = 'zarthus-theme.min.css';
 		$web['title'] = 'About Me';
-		
+
 		include(HTMLDIR . '/head.php');
 	?>
 	<link rel="stylesheet" href="<?php echo JSDIR ?>/jquery-github/assets/base.css">
@@ -162,7 +162,7 @@ require_once('includes/php/init.php');
 		</div>
 
 		<hr>
-		
+
 		<div class="row">
 			<div class="col-md-12">
 					<h3>Github Spotlights</h3>
@@ -175,10 +175,10 @@ require_once('includes/php/init.php');
 						<div data-repo="Zarthus/School" class="github-box-wrap"></div>
 						<br>
 					</div>
-			
+
 			</div>
 		</div>
-		
+
 		<hr>
 
 		<div class="row">

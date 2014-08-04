@@ -172,6 +172,15 @@ $navbar = array
 		'icon' => 'fa-heart',
 	),
 
+    'paste' => array
+    (
+            'name' => 'Paste',
+
+            'href' => 'http://paste.zarth.us',
+
+            'icon' => 'fa-file-text'
+    ),
+
 	'github' => array
 	(
 		'name' => 'Github',
