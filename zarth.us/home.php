@@ -49,7 +49,7 @@ require_once('includes/php/init.php');
 				</h2>
 				<p>
 					I've done a few things over the years, like making <a href="http://<?php echo $site_name ?>">this website</a>,
-					developing a few <a>IRC Bots</a>,
+					developing a few <a href="projects">IRC Bots and other projects</a>,
 					and solve problems on <a href="http://projecteuler.net">Project Euler</a>.
 				</p>
 			</div>
