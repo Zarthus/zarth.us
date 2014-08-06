@@ -33,7 +33,7 @@ function getSiteName($markup = false)
 	}
 	else if ($count > 2)
 	{	// We're on a subdomain
-		return '<span class="site-name-subdomains">' . implode('.', array_slice($sName, 0, $count - 2)) . '</span>' .
+		return '<span class="site-name-subdomains">' . implode('.', array_slice($sName, 0, $count - 2)) . '</span>.' .
 			'<span class="site-name-primary">' . $sName[$count - 2] . '</span>.' .
 			'<span class="site-name-tld">' . $sName[$count - 1] . '</span>';
 	}
