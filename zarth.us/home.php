@@ -34,9 +34,8 @@ require_once('includes/php/init.php');
 			<hr>
 		</div>
 		<p>
-			Quite honestly, I have no idea what to put here, so check out some of my projects and things I've spent time on!
+			<?php echo "Welcome to " . $site_name . ", " . getServerFlavour(); ?>
 		</p>
-		<br><br>
 
 		<?php include(HTMLDIR . '/lastfm.php'); ?>
 		<hr>

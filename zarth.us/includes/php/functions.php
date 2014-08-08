@@ -120,10 +120,34 @@ JS;
 	return "";
 }
 
+/**
+ * getServerName()
+ *
+ * The primary hostname of the server.
+ */
+function getServerName()
+{
+    if (strtolower(PHP_OS) == "linux") {
+        return shell_exec("hostname");
+    } else {
+        return "frostbite";
+    }
+}
+
+/**
+ * getServerFlavour()
+ *
+ * Return flavour text of the server.
+ */
+function getServerFlavour()
+{
+    return "uncomfortably icy.";
+}
+
 function lastfm_init(&$lfm)
 {
-	$lastfm_data = array();
 	if (!$lfm['enabled']) return;
+	$lastfm_data = array();
 
 	try {
 		$xml = User::getRecentTracks($lfm['user']);
