@@ -30,7 +30,7 @@ require_once('includes/php/init.php');
 
 	<div class="container content">
 		<div class="page-header jumbotron">
-			<h1><a class="no-link-markup" href="<?php echo $_SERVER['SERVER_NAME'] ?>">Welcome to <?php echo getSiteName(true) ?></a></h1>
+			<h1><a class="no-link-markup" href="http://<?php echo $_SERVER['SERVER_NAME'] ?>">Welcome to <?php echo getSiteName(true) ?></a></h1>
 			<hr>
 		</div>
 		<p>

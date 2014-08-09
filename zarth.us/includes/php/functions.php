@@ -130,7 +130,7 @@ function getServerName()
     if (strtolower(PHP_OS) == "linux") {
         return shell_exec("hostname");
     } else {
-        return "frostbite";
+        return "frost";
     }
 }
 
