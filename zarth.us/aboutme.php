@@ -67,7 +67,7 @@ require_once('includes/php/init.php');
 				</p><p>
 					<i>Wikipedia</i>
 					<br>
-					I contribute to <a href="https://en.wikipedia.org">Wikipedia</a>, under the name of <a href="https://en.wikipedia.org/wiki/User:Zarthus">Zarthus</a><br>
+					I contribute to <a href="https://en.wikipedia.org">Wikipedia</a>, under the name of <a href="https://en.wikipedia.org/wiki/Special:Contributions/Zarthus">Zarthus</a><br>
 					You can find my contributions to Wikipedia <a href="https://en.wikipedia.org/wiki/Special:Contributions/Zarthus">here</a>
 				</p><p>
 					<i>Stack Overflow</i>
