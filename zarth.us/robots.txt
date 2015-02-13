@@ -6,3 +6,6 @@ Disallow: /source/
 
 User-agent: *
 Disallow: /licenses/
+
+User-agent: *
+Disallow: /downloads/
