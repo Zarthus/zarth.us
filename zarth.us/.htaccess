@@ -9,4 +9,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule (.*) $1.php [L]
 
 RewriteCond %{HTTP:CF-Visitor} !'"scheme":"http"'
-RewriteRule ^(.*)$ https://www.domain.com/$1 [L]
+RewriteRule ^(.*)$ https://zarth.us/$1 [L]
