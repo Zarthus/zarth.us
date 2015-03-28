@@ -1,4 +1,8 @@
+
 RewriteEngine On
+
+RewriteCond %{HTTP:CF-Visitor} !'"scheme":"http"'
+RewriteRule ^(.*)$ https://zarth.us/$1 [L]
 
 # Set directory index to home.
 DirectoryIndex home.php
@@ -7,6 +11,3 @@ DirectoryIndex home.php
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule (.*) $1.php [L]
-
-RewriteCond %{HTTP:CF-Visitor} !'"scheme":"http"'
-RewriteRule ^(.*)$ https://zarth.us/$1 [L]
