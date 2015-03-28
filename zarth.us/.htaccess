@@ -7,3 +7,6 @@ DirectoryIndex home.php
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule (.*) $1.php [L]
+
+RewriteCond %{HTTP:CF-Visitor} !'"scheme":"http"'
+RewriteRule ^(.*)$ https://www.domain.com/$1 [L]
