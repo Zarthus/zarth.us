@@ -1,6 +1,10 @@
 zarth.us [![Build Status](https://travis-ci.org/Zarthus/zarth.us.svg?branch=master)](https://travis-ci.org/Zarthus/zarth.us)  
 ==========
 
+## Version 1.0
+
+This is the first version of zarth.us, a newer version rewrite is present at [zarthus/zarth.us](https://github.com/zarthus/zarth.us)
+
 ## What is this?
 This is zarth.us, a website I made by and for myself.  
 I wanted to focus on documenting my code properly, and generally try out all kinds of open source utilities more popular projects have.
