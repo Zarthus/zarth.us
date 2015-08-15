@@ -3,7 +3,7 @@ zarth.us [![Build Status](https://travis-ci.org/Zarthus/zarth.us.svg?branch=mast
 
 ## Version 1.0
 
-This is the first version of zarth.us, a newer version rewrite is present at [zarthus/zarth.us](https://github.com/zarthus/zarth.us)
+This is the first version of zarth.us, a newer version rewrite is present at [zarthus/luradi.com](https://github.com/zarthus/luradi.com)
 
 ## What is this?
 This is zarth.us, a website I made by and for myself.  
